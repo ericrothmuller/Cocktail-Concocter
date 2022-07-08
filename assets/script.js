@@ -38,4 +38,4 @@ function fetchIngredient() {
     })
 }
 
-fetchIngredient()
+fetchIngredient();
