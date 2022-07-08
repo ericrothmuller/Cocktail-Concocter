@@ -20,48 +20,59 @@ header p {
 
 main {
     display: flex;
-    flex-direction: column;
-    /* background-color: aqua; */
 }
 
-#searchdiv {
-    display: flex;
-    width: 60vw;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    position: relative;
-    /* background-color: blueviolet; */
-}
+/* Ingredients and Dietary Restrictions Stylings*/
 
 #ingredientdietdiv {
     width: 60vw;
     display: flex;
-    /* background-color: pink; */
 }
+
+/* Ingredients List Stylings */
 
 #ingredients {
-    margin: 1%;
+    box-sizing: border-box;
     padding: 1%;
-    /* background-color:beige; */
     height: auto;
     width: 50%;
 }
 
+/* Diet Restrictions List Stylings */
+
 #dietrestrictions {
-    margin: 1%;
+    box-sizing: border-box;
     padding: 1%;
-    /* background-color: beige; */
     height: auto;
     width: 50%;
 }
+
+/* Form Stylings */
 
 form {
     display: flex;
 }
 
-#searchbutton {
+/* Recipe Div Stylings */
+
+#recipediv {
+    box-sizing: border-box;
+    padding: 1%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 39vw;
+    height: auto;
+    text-align: center;
+}
+
+/* Search Div and Button Stylings */
+
+#searchdiv {
+    display: flex;
+    width: 60vw;
+}
+
+#searchbutton {
     width: 100%;
+    border-radius: 5px;
 }
