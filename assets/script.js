@@ -1,9 +1,39 @@
 // TheCocktailDB API
 
-var searchButton = document.getElementById("searchbutton");
+// Universal Variables
+
+var searchButton = document.getElementById("searchbutton"); // Search Button ID
+
+var ingredientForm = document.getElementById("addingredientform"); // Ingredient Form
+
+var ingredientTextInput = document.getElementById("addingredienttext"); // Ingredient Text Input Area
+
+var ingredientListArea = document.getElementById("ingredientlist"); // Ingredient List Area
+
+
+
+
+// Function to add ingredients
+
+function addIngredient(event) {
+    event.preventDefault();
+    if (ingredientTextInput.value){
+        console.log(ingredientTextInput.value);
+    }
+
+}
+
+// Add Ingredient Button
+
+ingredientForm.addEventListener("submit", addIngredient);
+
+
+
+
+// This gets recipes based on search results
 
 var executeSearch = function fetchRandomRecipe() {
-    var randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533//search.php?i=vodka";
+    var randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?i=vodka";
 
     fetch(randomCocktailUrl).then(function(response) {
         return response.json();
@@ -11,6 +41,8 @@ var executeSearch = function fetchRandomRecipe() {
         console.log(data);
     })
 }
+
+// Search Button Event Listener
 
 searchButton.addEventListener("click", executeSearch);
 
