@@ -16,3 +16,52 @@ header p {
     margin: 0% 2%;
 }
 
+/* Main Stylings */
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+#searchdiv {
+    display: flex;
+    width: 60vw;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    /* background-color: blueviolet; */
+}
+
+#ingredientdietdiv {
+    width: 60vw;
+    display: flex;
+    /* background-color: pink; */
+}
+
+#ingredients {
+    margin: 1%;
+    padding: 1%;
+    /* background-color:beige; */
+    height: auto;
+    width: 50%;
+}
+
+#dietrestrictions {
+    margin: 1%;
+    padding: 1%;
+    /* background-color: beige; */
+    height: auto;
+    width: 50%;
+}
+
+form {
+    display: flex;
+}
+
+#searchbutton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
