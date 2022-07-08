@@ -1,7 +1,9 @@
 // TheCocktailDB API
 
-function fetchRandomRecipe() {
-    var randomCocktailUrl = "www.thecocktaildb.com/api/json/v1/1/random.php";
+var searchButton = document.getElementById("searchbutton");
+
+var executeSearch = function fetchRandomRecipe() {
+    var randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533//search.php?i=vodka";
 
     fetch(randomCocktailUrl).then(function(response) {
         return response.json();
@@ -10,32 +12,48 @@ function fetchRandomRecipe() {
     })
 }
 
-fetchRandomRecipe();
+searchButton.addEventListener("click", executeSearch);
 
-// Spoonacular API
 
-function fetchNewRandomRecipe() {
-    var randomRecipeUrl = "https://api.spoonacular.com/recipes/random?apiKey=617cbeaaaaed4784b11395a671e20554";
 
-    fetch(randomRecipeUrl).then(function(response) {
-        return response.json();
-    }).then (function (data) {
-        console.log(data);
-    })
-}
 
-fetchNewRandomRecipe();
 
-// nutritionix API
 
-function fetchIngredient() {
-    var ingredientURL = "https://api.nutritionix.com/v1_1/search/mcdonalds?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=e7329152&appKey=cdcdcd716488b6541ff443f49fc0a39d";
 
-    fetch(ingredientURL).then(function(response) {
-        return response.json();
-    }).then (function (data) {
-        console.log(data);
-    })
-}
 
-fetchIngredient();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Spoonacular API
+
+// function fetchNewRandomRecipe() {
+//     var randomRecipeUrl = "https://api.spoonacular.com/recipes/random?number=1&tags=cocktail&apiKey=617cbeaaaaed4784b11395a671e20554&intolerances";
+
+//     var searchRecipeUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=alcohol,rum,+sugar,+pineapple&number=20&apiKey=617cbeaaaaed4784b11395a671e20554&tags=cocktail,alcohol";
+
+//     var complexSearchUrl = "https://api.spoonacular.com/recipes/complexSearch?query=cocktail&type=drink&includeIngredients=alcohol&apiKey=617cbeaaaaed4784b11395a671e20554";
+
+//     fetch(complexSearchUrl).then(function(response) {
+//         return response.json();
+//     }).then (function (data) {
+//         console.log(data);
+//     })
+// }
+
+// fetchNewRandomRecipe();
+
+// https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert
