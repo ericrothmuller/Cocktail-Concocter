@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Cocktail Concocter</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
@@ -18,11 +18,11 @@
     </div>
     
     <main class="flex"><!--Main Stylings--><!--\Ingredients Stylings/-->
-        <div id="ingredientdietdiv" class="flex flex-col w-1/2 border-2 border-b-black border-l-black border-r-black">
+        <div id="ingredientdietdiv" class="flex-col w-1/2 h-screen border-2 border-b-black border-l-black border-r-black">
             <div id="ingredients">
                 <h2 class="text-sm lg:text-base">Available Ingredients:</h2>
                 <form class="flex"> <!--Form Stylings-->
-                    <input type="text" class="bg-orange-50 hover:bg-orange-50/30">
+                    <input type="text" class="w-1/2 bg-orange-50 hover:bg-orange-50/30">
                     <input type="submit"class="px-1 bg-teal-100 hover:bg-emerald-800">
                 </form>
                 <hr />
@@ -31,6 +31,7 @@
             <div>
                 <p id="dietrestrictionslist" class="bg-grey-50">~the list</p>
             </div>
+            
         </div>
         
         <div id="recipediv" class="flex flex-col w-1/2 border-2 border-b-black border-r-black text-center"><!--Recipe Div Stylings-->
@@ -39,11 +40,11 @@
         </div>
     </main>
 
-    <div id="searchdiv" class="w-1/2"><!--Search Div and Button Stylings-->
-        <button id="searchbutton" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">Search</button>
-    </div>
+    <aside class="w-1/2 h-full border-2 border-black justify-center">
+        <video width="850" controls>
 
-    <aside class="w-1/2 h-full border-2 border-black">tutorial video<video></video></aside>
+      </video>
+    </aside>
 
     <footer class="w-1/2 text-center border-2 border-black">~End Statement~</footer>
 
