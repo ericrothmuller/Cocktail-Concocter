@@ -6,44 +6,6 @@
     background-color: ghostwhite;
 }
 
-
-
-/* Ingredients Stylings*/
-
-#ingredientdietdiv {
-    width: 60vw;
-    display: flex;
-}
-
 /* Ingredients List Stylings */
 
-#ingredients {
-    box-sizing: border-box;
-    padding: 1%;
-    height: auto;
-    width: 50%;
-}
 
-
-/* Form Stylings */
-
-form {
-    display: flex;
-}
-
-
-
-#recipediv {
-    width: 40vw;
-}
-
-/* Search Div and Button Stylings */
-
-#searchdiv {
-    width: 60vw;
-}
-
-#searchbutton {
-    width: 100%;
-    border-radius: 5px;
-}
