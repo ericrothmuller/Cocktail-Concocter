@@ -11,16 +11,15 @@
 <body>
     <div class="flex"><!--puts header in flexbox-->
         <header class="basis-auto border-2 border-black"><!--Header Stylings-->
-            <h1 class="text-2xl font-bold text-center border-2 border-b-black">Cocktail Concocter</h1>
+            <h1 class="text-2xl font-bold text-center border-b-2 border-b-black">Cocktail Concocter</h1>
             <p class="text-xs lg:text-base mx-3">Welcome to the Cocktail Concocter! Please select the ingredients you'd like to use in the Available Ingredients section and if you have a dietary restriction, please add your dietary 
                 restriction in the Dietary Restrictions section. After clicking the search button, you will be displayed the available cocktail recipes.</p>
         </header>
     </div>
     
-    <main class="flex flex-col"><!--Main Stylings--><!--\Ingredients Stylings/-->
-        <div class="sm:flex-row sm:items-start sm:w-1/2">
-            <div id="ingredientdietdiv" class="flex-col h-screen border-2 border-b-black border-l-black border-r-black">
-                <div id="ingredients" class="sm:w-1/2">
+    <main class="flex flex-col sm:flex-row"><!--Main Stylings--><!--\Ingredients Stylings/-->
+            <div id="ingredientdietdiv" class="flex-col sm:w-1/2 h-screen border-b-2 border-l-2 border-r-2 border-b-black border-l-black border-r-black">
+                <div id="ingredients" class="">
                     <h2 class="text-sm lg:text-base text-center sm:text-left">Available Ingredients:</h2>
                     
                     <form class="flex"> <!--Form Stylings-->
@@ -32,29 +31,29 @@
                 </div>
             
                <div>
-                 <p id="dietrestrictionslist" class="bg-grey-50 sm:w-1/2">~the list</p>
+                 <p id="dietrestrictionslist" class="bg-grey-50">~the list</p>
                </div>
 
-                <div id="searchdiv" class="sm:w-1/2"><!--Search Div and Button Stylings-->
+                <div id="searchdiv" class=""><!--Search Div and Button Stylings-->
                     <button id="searchbutton" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">Search</button>
                 </div>
+                
             </div>
-        </div>
-        <div class="sm:flex-row sm:items-end sm:w-1/2">
-            <div id="recipediv" class="border-2 border-b-black border-r-black text-center"><!--Recipe Div Stylings-->
+
+            <div id="recipediv" class="sm:w-1/2 border-r-2 border-r-black text-center"><!--Recipe Div Stylings-->
                 <h2>Recipes</h2>
                 <p id="recipelist">the recipe API response</p>
             </div>
-        </div>
+   
 
     </main>
 
-    <aside class="sm:w-1/2 h-full border-2 border-black justify-center">
+    <aside class="sm:w-1/2 h-full justify-center">
         <video width="100%" controls>
         </video>
     </aside>
 
-    <footer class="text-center border-2 border-black">~End Statement~</footer>
+    <footer class="text-center border-t-2 border-b-2 border-l-2 border-t-black border-b-black border-l-black">~End Statement~</footer>
 
     <script src="./assets/script.js"></script>
 </body>
