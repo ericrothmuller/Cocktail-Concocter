@@ -12,6 +12,8 @@ var ingredientListArea = document.getElementById("ingredientlist"); // Ingredien
 
 var ingredientLocalStorageArr = [];
 
+// var ingredientForRecipeURL // Holds ingredient value for TheCocktailDB API URL
+
 // Duplicate remover
 function removeDuplicate(arr){
     var exists = {};
@@ -31,17 +33,51 @@ function removeDuplicate(arr){
 function addIngredient(event) {
     event.preventDefault();
     if (ingredientTextInput.value){ // Checks if there's something typed into the ingredient text field
-        console.log(ingredientTextInput.value); // consol.log's the input value
+        console.log(ingredientTextInput.value); // console.log's the input value
         var inputKey = ingredientTextInput.value; // Will be the localStorage Key
         var inputValue = ingredientTextInput.value; // Will be the localStorage Value
         localStorage.setItem(inputKey, inputValue); // Saves the localStorage Key and Value
         ingredientLocalStorageArr.push(inputValue); // Adds ingredient to ingredientLocalStorageArr
         ingredientLocalStorageArr = removeDuplicate(ingredientLocalStorageArr); // removed duplicates from ingredientLocalStorageArr
-        console.log(ingredientLocalStorageArr); // consol.log's the ingredientLocalStorageArr
+
 
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
+//     ingredientListArea.innerHTML = "";
+//     ingredientListArea.innerHTML = addIngredientList;
+//     console.log(addIngredientList);
+// };
+
+// if (localStorage.getItem(inputKey)) { // checks it here is items
+// clearAndAddIngredients();
+// }
+
+
+
+
+
+
+
 
 
 // Add Ingredient Button
@@ -52,7 +88,13 @@ ingredientForm.addEventListener("submit", addIngredient);
 // This gets recipes based on search results
 
 var executeSearch = function fetchRandomRecipe() {
-    var randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?i=vodka";
+
+    var ingredientArrayString = ingredientLocalStorageArr.join(); // joins the ingredientLocalStorageArr array into a string
+    var ingredientForRecipeURL = ingredientArrayString.replace(/ /g,"_") // replaces spaces with _ for the Recipe URL API Query
+
+    var randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredientForRecipeURL; // URL to fetch cocktail recipes based on user input
+
+    console.log (randomCocktailUrl);
 
     fetch(randomCocktailUrl).then(function(response) {
         return response.json();
