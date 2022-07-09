@@ -10,7 +10,12 @@ var ingredientTextInput = document.getElementById("addingredienttext"); // Ingre
 
 var ingredientListArea = document.getElementById("ingredientlist"); // Ingredient List Area
 
-var recipeListArea1 = document.getElementById("recipelist1"); // Recipe List Area
+var recipeListArea1 = document.getElementById("recipelist1"); // Recipe Header and Image List Area
+
+var recipeListArea1Ingredients = document.getElementById("recipelist1ingredients"); // Recipe Ingredients List Area
+
+var recipeListArea1recipe = document.getElementById("recipelist1recipe"); // Recipe List Area
+
 
 
 var ingredientLocalStorageArr = [];
@@ -48,23 +53,6 @@ function addIngredient(event) {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
 //     ingredientListArea.innerHTML = "";
 //     ingredientListArea.innerHTML = addIngredientList;
@@ -75,44 +63,59 @@ function addIngredient(event) {
 // clearAndAddIngredients();
 // }
 
-
-
-
-
-
-
-
-
 // Add Ingredient Button
 
 ingredientForm.addEventListener("submit", addIngredient);
 
 
+
+
+
+
+
 // This gets recipes based on search results
 
-var executeSearch = function fetchRandomRecipe() {
+var executeSearch = function fetchFoundRecipe() {
 
     var ingredientArrayString = ingredientLocalStorageArr.join(); // joins the ingredientLocalStorageArr array into a string
     var ingredientForRecipeURL = ingredientArrayString.replace(/ /g,"_") // replaces spaces with _ for the Recipe URL API Query
 
-    var randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredientForRecipeURL; // URL to fetch cocktail recipes based on user input
+    var searchCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredientForRecipeURL; // URL to fetch cocktail recipes based on user input
 
-    console.log (randomCocktailUrl); // Console.log's the generated URL based on user input
-
-    fetch(randomCocktailUrl).then(function(response) { // Fetch request for the recipe data based on user input
+    fetch(searchCocktailUrl).then(function(response) { // Fetch request for the recipe data based on user input
         return response.json();
     }).then (function (data) {
-        console.log(data); // Console.log's the recipe data
-        // recipeListArea.innerHTML = " "; // Clears recipe area
 
         function displayCocktails(cocktail) { //Function that get's the cocktails data and displays it
             var cocktailName = cocktail.drinks[0].strDrink; // grabs cocktail drink 1's name
             var cocktailImage = cocktail.drinks[0].strDrinkThumb; // grabs cocktail drink 1's image url
             var cocktailId = cocktail.drinks[0].idDrink; // grabs cocktail drink 1's product ID
 
-            recipeListArea1.innerHTML = '<h2>' + cocktailName + '</h2> <br /> <br /> <img src="' + cocktailImage + '" />'; // displays recipe 1 in the recipe list area
+            recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName + '</h2> <br /> <img src="' + cocktailImage + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 1 in the recipe list area
 
+            var recipe1Button = document.getElementById("recipe1buttonarea"); // targets the recipe 1 button
+            var recipe1Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId; // URL for recipe 1
 
+            // Displays Recipe 1
+
+            function displayRecipe1() {
+                fetch(recipe1Url).then(function(response) { // Fetch request for the full recipe data
+                    return response.json();
+                }).then (function(recipe) { // function to display recipe
+                    
+                    var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient and it's amount
+
+                    var ingredientListItems1 = document.createTextNode(individualIngredientsOne);
+                    recipeListArea1Ingredients.appendChild(ingredientListItems1)
+
+                    var cocktailInstructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 1's instructions
+                    recipeListArea1recipe.innerHTML = cocktailInstructions; + '<br/>' // Displays recipe 1 instructions
+                })
+            } 
+
+            recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
+
+            
         }
         displayCocktails(data); // runs the display cocktails function
     })
