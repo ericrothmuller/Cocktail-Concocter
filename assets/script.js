@@ -10,24 +10,43 @@ var ingredientTextInput = document.getElementById("addingredienttext"); // Ingre
 
 var ingredientListArea = document.getElementById("ingredientlist"); // Ingredient List Area
 
+var ingredientLocalStorageArr = [];
 
-
+// Duplicate remover
+function removeDuplicate(arr){
+    var exists = {};
+    var resultArr = [];
+    for (var j = 0; j < arr.length; j++){
+        var index = arr[j];
+        if(!exists[index]){
+            resultArr.push(index);
+            exists[index] = true;
+        }
+    }
+    return resultArr;
+}
 
 // Function to add ingredients
 
 function addIngredient(event) {
     event.preventDefault();
-    if (ingredientTextInput.value){
-        console.log(ingredientTextInput.value);
+    if (ingredientTextInput.value){ // Checks if there's something typed into the ingredient text field
+        console.log(ingredientTextInput.value); // consol.log's the input value
+        var inputKey = ingredientTextInput.value; // Will be the localStorage Key
+        var inputValue = ingredientTextInput.value; // Will be the localStorage Value
+        localStorage.setItem(inputKey, inputValue); // Saves the localStorage Key and Value
+        ingredientLocalStorageArr.push(inputValue); // Adds ingredient to ingredientLocalStorageArr
+        ingredientLocalStorageArr = removeDuplicate(ingredientLocalStorageArr); // removed duplicates from ingredientLocalStorageArr
+        console.log(ingredientLocalStorageArr); // consol.log's the ingredientLocalStorageArr
+
     }
 
 }
 
+
 // Add Ingredient Button
 
 ingredientForm.addEventListener("submit", addIngredient);
-
-
 
 
 // This gets recipes based on search results
