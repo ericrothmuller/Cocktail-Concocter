@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
-    <div class="flex">
-        <header class="basis-auto border-2 border-black">
+    <div class="flex"><!--puts header in flexbox-->
+        <header class="basis-auto border-2 border-black"><!--Header Stylings-->
             <h1 class="text-2xl font-bold text-center border-2 border-b-black">Cocktail Concocter</h1>
             <hr />
-            <p class="text-sm lg:text-basic">Welcome to the Cocktail Concocter! Please select the ingredients you'd like to use in the Available Ingredients section and if you have a dietary restriction, please add your dietary 
+            <p class="text-sm lg:text-base mx-3">Welcome to the Cocktail Concocter! Please select the ingredients you'd like to use in the Available Ingredients section and if you have a dietary restriction, please add your dietary 
                 restriction in the Dietary Restrictions section. After clicking the search button, you will be displayed the available cocktail recipes.</p>
         </header>
     </div>
+    
     <main>
         <div id="ingredientdietdiv">
             <div id="ingredients">
-                <h2>Available Ingredients</h2>
+                <h2>Available Ingredients:</h2>
                 <form>
                     <input type="text">
                     <input type="submit">
@@ -29,14 +29,8 @@
                 <hr />
                 <p id="ingredientlist"></p>
             </div>
-            <div id="dietrestrictions">
-                <h2>Dietary Restrictions</h2>
-                <form>
-                    <input type="text">
-                    <input type="submit">
-                </form>
-                <hr />
-                <p id="dietrestrictionslist"></p>
+
+                <p id="dietrestrictionslist">arega</p>
             </div>
         </div>
         <div id="recipediv">
