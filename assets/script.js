@@ -103,10 +103,26 @@ var executeSearch = function fetchFoundRecipe() {
                     return response.json();
                 }).then (function(recipe) { // function to display recipe
                     
-                    var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient and it's amount
+                    var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 1 and it's amount
+                    var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 1 string
 
-                    var ingredientListItems1 = document.createTextNode(individualIngredientsOne);
-                    recipeListArea1Ingredients.appendChild(ingredientListItems1)
+                    var createLi = document.createElement("li"); // creates a List Item
+                    createLi.appendChild(ingredientListItems1); // adds ingredient to list
+                    recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+
+
+
+                    var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 1 and it's amount
+                    var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 1 string
+
+                    var createLi = document.createElement("li"); // creates a List Item
+                    createLi.appendChild(ingredientListItems2); // adds ingredient to list
+                    recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+
+
+
+
+
 
                     var cocktailInstructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 1's instructions
                     recipeListArea1recipe.innerHTML = cocktailInstructions; + '<br/>' // Displays recipe 1 instructions
