@@ -17,36 +17,40 @@
         </header>
     </div>
     
-    <main class="flex-col"><!--Main Stylings--><!--\Ingredients Stylings/-->
-        <div id="ingredientdietdiv" class="flex-col basis-1/2 h-screen border-2 border-b-black border-l-black border-r-black">
-            <div id="ingredients">
-                <h2 class="text-sm lg:text-base">Available Ingredients:</h2>
-                   
-                <form class="flex"> <!--Form Stylings-->
-                    <input type="text" class="w-1/2 bg-orange-50 hover:bg-orange-50/30">
-                    <input type="submit"class="px-1 bg-teal-100 hover:bg-emerald-800">
-                </form>
-                <hr />
-                <p id="ingredientlist"></p>
-            </div>
+    <main class="flex flex-col"><!--Main Stylings--><!--\Ingredients Stylings/-->
+        <div class="sm:flex-row sm:items-start sm:w-1/2">
+            <div id="ingredientdietdiv" class="flex-col h-screen border-2 border-b-black border-l-black border-r-black">
+                <div id="ingredients" class="sm:w-1/2">
+                    <h2 class="text-sm lg:text-base text-center sm:text-left">Available Ingredients:</h2>
+                    
+                    <form class="flex"> <!--Form Stylings-->
+                        <input type="text" class="w-1/2 bg-orange-50 hover:bg-orange-50/30">
+                        <input type="submit"class="px-1 bg-teal-100 hover:bg-emerald-800">
+                    </form>
+                    <hr />
+                    <p id="ingredientlist"></p>
+                </div>
+            
+               <div>
+                 <p id="dietrestrictionslist" class="bg-grey-50 sm:w-1/2">~the list</p>
+               </div>
 
-            <div>
-                <p id="dietrestrictionslist" class="bg-grey-50">~the list</p>
-            </div>
-
-            <div id="searchdiv"><!--Search Div and Button Stylings-->
-                <button id="searchbutton" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">Search</button>
+                <div id="searchdiv" class="sm:w-1/2"><!--Search Div and Button Stylings-->
+                    <button id="searchbutton" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">Search</button>
+                </div>
             </div>
         </div>
-        
-        <div id="recipediv" class="basis-1/2 border-2 border-b-black border-r-black text-center"><!--Recipe Div Stylings-->
-            <h2>Recipes</h2>
-            <p id="recipelist">the recipe API response</p>
+        <div class="sm:flex-row sm:items-end sm:w-1/2">
+            <div id="recipediv" class="border-2 border-b-black border-r-black text-center"><!--Recipe Div Stylings-->
+                <h2>Recipes</h2>
+                <p id="recipelist">the recipe API response</p>
+            </div>
         </div>
+
     </main>
 
-    <aside class="w-1/2 h-full border-2 border-black justify-center">
-        <video width="850" controls>
+    <aside class="sm:w-1/2 h-full border-2 border-black justify-center">
+        <video width="100%" controls>
         </video>
     </aside>
 
