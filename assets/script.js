@@ -10,6 +10,9 @@ var ingredientTextInput = document.getElementById("addingredienttext"); // Ingre
 
 var ingredientListArea = document.getElementById("ingredientlist"); // Ingredient List Area
 
+var recipeListArea1 = document.getElementById("recipelist1"); // Recipe List Area
+
+
 var ingredientLocalStorageArr = [];
 
 // var ingredientForRecipeURL // Holds ingredient value for TheCocktailDB API URL
@@ -94,59 +97,29 @@ var executeSearch = function fetchRandomRecipe() {
 
     var randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredientForRecipeURL; // URL to fetch cocktail recipes based on user input
 
-    console.log (randomCocktailUrl);
+    console.log (randomCocktailUrl); // Console.log's the generated URL based on user input
 
-    fetch(randomCocktailUrl).then(function(response) {
+    fetch(randomCocktailUrl).then(function(response) { // Fetch request for the recipe data based on user input
         return response.json();
     }).then (function (data) {
-        console.log(data);
+        console.log(data); // Console.log's the recipe data
+        // recipeListArea.innerHTML = " "; // Clears recipe area
+
+        function displayCocktails(cocktail) { //Function that get's the cocktails data and displays it
+            var cocktailName = cocktail.drinks[0].strDrink; // grabs cocktail drink 1's name
+            var cocktailImage = cocktail.drinks[0].strDrinkThumb; // grabs cocktail drink 1's image url
+            var cocktailId = cocktail.drinks[0].idDrink; // grabs cocktail drink 1's product ID
+
+            recipeListArea1.innerHTML = '<h2>' + cocktailName + '</h2> <br /> <br /> <img src="' + cocktailImage + '" />'; // displays recipe 1 in the recipe list area
+
+
+        }
+        displayCocktails(data); // runs the display cocktails function
     })
 }
+
+
 
 // Search Button Event Listener
 
 searchButton.addEventListener("click", executeSearch);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Spoonacular API
-
-// function fetchNewRandomRecipe() {
-//     var randomRecipeUrl = "https://api.spoonacular.com/recipes/random?number=1&tags=cocktail&apiKey=617cbeaaaaed4784b11395a671e20554&intolerances";
-
-//     var searchRecipeUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=alcohol,rum,+sugar,+pineapple&number=20&apiKey=617cbeaaaaed4784b11395a671e20554&tags=cocktail,alcohol";
-
-//     var complexSearchUrl = "https://api.spoonacular.com/recipes/complexSearch?query=cocktail&type=drink&includeIngredients=alcohol&apiKey=617cbeaaaaed4784b11395a671e20554";
-
-//     fetch(complexSearchUrl).then(function(response) {
-//         return response.json();
-//     }).then (function (data) {
-//         console.log(data);
-//     })
-// }
-
-// fetchNewRandomRecipe();
-
-// https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert
