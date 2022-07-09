@@ -6,13 +6,9 @@
     background-color: ghostwhite;
 }
 
-/* Main Stylings */
 
-main {
-    display: flex;
-}
 
-/* Ingredients and Dietary Restrictions Stylings*/
+/* Ingredients Stylings*/
 
 #ingredientdietdiv {
     width: 60vw;
