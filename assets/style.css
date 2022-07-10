@@ -4,6 +4,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     background-color: rgb(255, 253, 253);
+    color: rgb(51, 6, 6)
 }
 
 header h1 {
@@ -23,6 +24,10 @@ form {
 }
 
 #searchbutton {
+    font-family: 'croissant one'
+}
+
+h2 {
     font-family: 'croissant one'
 }
 
@@ -128,4 +133,8 @@ img {
     height: auto;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+footer {
+    font-family: 'marck script';
 }
