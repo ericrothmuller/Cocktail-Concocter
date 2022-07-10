@@ -146,7 +146,7 @@ var executeSearch = function fetchFoundRecipe() {
                 var videos1Button = document.getElementById("videos1Button"); // targets the videos button
                 videos1Button.addEventListener("click", displayVideos); // event listener for the videos button
 
-                var videosSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&videoLicense=creativeCommon&q=" + cocktailName1 + "+cocktail+recipes&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o" // URL for YouTube API Fetch                
+                var videosSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&videoLicense=creativeCommon&topicId=cocktails&q=" + cocktailName1 + "+cocktail+recipes&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o" // URL for YouTube API Fetch                
                 
 
                 function displayVideos() { // function to fetch YouTube API Data based off a search of the cocktail name
@@ -339,18 +339,43 @@ var executeSearch = function fetchFoundRecipe() {
                 }
 
                 if (data.drinks[1]) {
+
                             // Displays Cocktail 2
     
                 var cocktailName2 = cocktail.drinks[1].strDrink; // grabs cocktail drink 2's name
                 var cocktailImage2 = cocktail.drinks[1].strDrinkThumb; // grabs cocktail drink 2's image url
                 var cocktailId2 = cocktail.drinks[1].idDrink; // grabs cocktail drink 2's product ID
     
-                recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe2buttonarea2" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
+                recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button id="videos2Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe2buttonarea2" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
     
                 var recipe2Button = document.getElementById("recipe2buttonarea2"); // targets the recipe 2 button
                 recipe2Button.addEventListener("click", displayRecipe2); // event listener for the recipe 2 button
                 var recipe2Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId2; // URL for recipe 2
     
+                // Displays Cocktail 2 Videos
+
+                var videos2Button = document.getElementById("videos2Button"); // targets the videos button
+                videos2Button.addEventListener("click", displayVideos); // event listener for the videos button
+
+                var videosSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&videoLicense=creativeCommon&topicId=food&q=" + cocktailName2 + "+cocktail+recipes&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o" // URL for YouTube API Fetch                
+                
+
+                function displayVideos() { // function to fetch YouTube API Data based off a search of the cocktail name
+                    fetch(videosSearchURL).then(function(response) {
+                        return response.json();
+                    }).then (function(videoData) {
+                        console.log(videoData);
+                        videoId1 = videoData.items[0].id.videoId;
+                        videoId2 = videoData.items[1].id.videoId;
+                        videoId3 = videoData.items[2].id.videoId;
+                        videoId4 = videoData.items[3].id.videoId;
+                        videoId5 = videoData.items[4].id.videoId;
+                        videoResultsArea.innerHTML = '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId1 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId2 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId3 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId4 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId5 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>'; // Adds video embeds to video section
+                    })
+                }
+
+                // Displays Recipe 2
+
                 function displayRecipe2() {
                     fetch(recipe2Url).then(function(response) { // Fetch request for the full recipe data
                         return response.json();
