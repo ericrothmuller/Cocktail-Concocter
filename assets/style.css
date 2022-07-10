@@ -113,3 +113,8 @@ img {
 footer {
     font-family: 'marck script';
 }
+
+.maintain-aspect-ratio {
+    width: 25%;
+    height: 25vw;
+}

@@ -6,8 +6,6 @@ var searchButton = document.getElementById("searchbutton"); // Search Button ID
 
 var ingredientForm = document.getElementById("addingredientform"); // Ingredient Form
 
-var removeIngredientForm = document.getElementById("ingredientlistform") //Remove Ingrediet Form
-
 var ingredientTextInput = document.getElementById("addingredienttext"); // Ingredient Text Input Area
 
 var ingredientListArea = document.getElementById("ingredientlist"); // Ingredient List Area
@@ -92,15 +90,15 @@ function addIngredient(event) {
 
 }
 
-function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
-     ingredientListArea.innerHTML = "";
-     ingredientListArea.innerHTML = addIngredientList;
-     console.log(addIngredientList);
- };
+//function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
+//     ingredientListArea.innerHTML = "";
+//     ingredientListArea.innerHTML = addIngredientList;
+//     console.log(addIngredientList);
+// };
 
- if (localStorage.getItem(removeIngredientForm)) { // checks it here is items
- clearAndAddIngredients();
-}
+// if (localStorage.getItem(removeIngredientForm)) { // checks it here is items
+// clearAndAddIngredients();
+//}
 
 // Add Ingredient Button
 
@@ -118,8 +116,6 @@ function ingredientListAdd(event) {
 
 ingredientForm.addEventListener("submit", addIngredient);
 ingredientForm.addEventListener("submit", ingredientListAdd);
-
-
 
 
 
