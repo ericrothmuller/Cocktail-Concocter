@@ -20,8 +20,8 @@
         </header>
     </div>
 
-    <main class="flex flex-col sm:flex-row"><!--Main Stylings--><!--\Ingredients Stylings/-->
-            <div id="ingredientdietdiv" class="flex-col sm:w-1/2 h-screen px-2 sm:pl-2">
+    <main class="flex flex-col sm:flex-row h-screen sm:h-fit"><!--Main Stylings--><!--\Ingredients Stylings/-->
+            <div id="ingredientdietdiv" class="flex-col sm:w-1/2 px-2 sm:pl-2">
                 <div id="ingredients" class="">
                     <h2 id="ai" class="text-sm lg:text-base italic text-center sm:text-left">Available Ingredients:</h2>
                     
@@ -35,10 +35,15 @@
                <div id="ingredientListDiv">
                  <p id="ingredientlist" class="bg-grey-50"></p>
                </div>
-
+            </br>
                 <div id="searchdiv" class=""><!--Search Div and Button Stylings-->
                     <button id="searchbutton" class="bg-sky-900 hover:bg-lime-900 w-full rounded">Search</button>
                 </div>
+
+                <aside class="h-full">
+                    <video width="100%" controls>
+                    </video>
+                </aside>
                 
             </div>
 
@@ -62,11 +67,6 @@
                 <div id="recipelist5recipe"></div>
             </article>
     </main>
-
-    <aside class="sm:w-1/2 h-full justify-center">
-        <video width="100%" controls>
-        </video>
-    </aside>
 
     <footer class="text-center border-t-2 border-t-sky-900">~End Statement~</footer>
 
