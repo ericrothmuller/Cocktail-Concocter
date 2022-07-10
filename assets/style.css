@@ -14,6 +14,18 @@ header p {
     font-family: "marck script";
 }
 
+#ai {
+    font-family: 'croissant one';
+}
+
+form {
+    font-family: 'croissant one'
+}
+
+#searchbutton {
+    font-family: 'croissant one'
+}
+
 #recipediv {
     display: flex;
     flex-direction: column;
@@ -27,6 +39,15 @@ header p {
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist1ingredients {
+    font-family: "marck script";
+}
+
+#recipelist1recipe {
+    font-family: "marck script";
 }
 
 #recipelist2 {
@@ -36,6 +57,15 @@ header p {
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist2ingredients {
+    font-family: "marck script";
+}
+
+#recipelist2recipe {
+    font-family: "marck script";
 }
 
 #recipelist3 {
@@ -45,7 +75,17 @@ header p {
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
 }
+
+#recipelist3ingredients {
+    font-family: "marck script";
+}
+
+#recipelist3recipe {
+    font-family: "marck script";
+}
+
 
 #recipelist4 {
     display: flex;
@@ -54,6 +94,15 @@ header p {
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist4ingredients {
+    font-family: "marck script";
+}
+
+#recipelist4recipe {
+    font-family: "marck script";
 }
 
 #recipelist5 {
@@ -63,6 +112,15 @@ header p {
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist5ingredients {
+    font-family: "marck script";
+}
+
+#recipelist5recipe {
+    font-family: "marck script";
 }
 
 img {

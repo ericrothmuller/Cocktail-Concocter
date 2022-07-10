@@ -14,7 +14,7 @@
 <body>
     <div class="flex"><!--puts header in flexbox-->
         <header class="basis-auto border-2 border-black"><!--Header Stylings-->
-            <h1 class="text-2xl font-bold text-center border-b-2 border-b-black">Cocktail Concocter</h1>
+            <h1 class="text-2xl font-bold italic text-center border-b-2 border-b-black">Cocktail Concocter</h1>
             <p class="text-xs md:text-sm lg:text-base mx-3">Welcome to the Cocktail Concocter! Please select the ingredients you'd like to use in the Available Ingredients section and if you have a dietary restriction, please add your dietary 
                 restriction in the Dietary Restrictions section. After clicking the search button, you will be displayed the available cocktail recipes.</p>
         </header>
@@ -23,7 +23,7 @@
     <main class="flex flex-col sm:flex-row"><!--Main Stylings--><!--\Ingredients Stylings/-->
             <div id="ingredientdietdiv" class="flex-col sm:w-1/2 h-screen border-b-2 border-l-2 border-r-2 border-b-black border-l-black border-r-black">
                 <div id="ingredients" class="">
-                    <h2 class="text-sm lg:text-base text-center sm:text-left">Available Ingredients:</h2>
+                    <h2 id="ai" class="text-sm lg:text-base text-center sm:text-left">Available Ingredients:</h2>
                     
                     <form class="flex" id="addingredientform"> <!--Form Stylings-->
                         <input type="text" class="w-1/2 bg-orange-50 hover:bg-orange-50/30" id="addingredienttext">
@@ -42,7 +42,7 @@
                 
             </div>
 
-            <div id="recipediv" class="sm:w-1/2 border-r-2 border-r-black text-center"><!--Recipe Div Stylings-->
+            <article id="recipediv" class="sm:w-1/2 border-r-2 border-r-black text-center"><!--Recipe Div Stylings-->
                 <h2><u>Recipes</u></h2>
                 <br />
                 <div id="recipelist1"></div>
@@ -60,7 +60,7 @@
                 <div id="recipelist5"></div>
                 <div id="recipelist5ingredients"></div>
                 <div id="recipelist5recipe"></div>
-            </div>
+            </article>
     </main>
 
     <aside class="sm:w-1/2 h-full justify-center">
