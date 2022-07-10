@@ -20,9 +20,9 @@
         </header>
     </div>
 
-    <main class="flex flex-col sm:flex-row h-screen"><!--Main Stylings--><!--\Ingredients Stylings/-->
+    <main class="flex flex-col sm:flex-row"><!--Main Stylings--><!--\Ingredients Stylings/-->
             <div id="ingredientdietdiv" class="flex-col sm:w-1/2 px-2 sm:pl-2">
-                <div id="ingredients" class="">
+                <div id="ingredients">
                     <h2 id="ai" class="text-sm lg:text-base italic text-center sm:text-left">Available Ingredients:</h2>
                     
                     <form id="addingredientform" class="flex"> <!--Form Stylings-->
@@ -40,7 +40,7 @@
                     <button id="searchbutton" class="bg-sky-900 hover:bg-lime-900 w-full rounded">Search</button>
                 </div>
 
-                <aside class="h-full">
+                <aside>
                     <video width="100%" controls>
                     </video>
                 </aside>
@@ -67,7 +67,9 @@
             </article>
     </main>
 
-    <footer class="text-center border-t-2 border-t-sky-900">~End Statement~</footer>
+    <div class="flex justify-center">
+        <footer>~End Statement~</footer>
+    </div>  
 
     <script src="./assets/script.js"></script>
 </body>
