@@ -978,18 +978,43 @@ var executeSearch = function fetchFoundRecipe() {
 
 
             if (data.drinks[4]) {
+
                             // Displays Cocktail 5
     
                 var cocktailName5 = cocktail.drinks[4].strDrink; // grabs cocktail drink 5's name
                 var cocktailImage5 = cocktail.drinks[4].strDrinkThumb; // grabs cocktail drink 5's image url
                 var cocktailId5 = cocktail.drinks[4].idDrink; // grabs cocktail drink 5's product ID
     
-                recipeListArea5.innerHTML = '<hr />' + '<h2>' + cocktailName5 + '</h2> <br /> <img src="' + cocktailImage5 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe5buttonarea5" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 5 in the recipe list area
+                recipeListArea5.innerHTML = '<hr />' + '<h2>' + cocktailName5 + '</h2> <br /> <img src="' + cocktailImage5 + '" /> <br /> <button id="videos5Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe5buttonarea5" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 5 in the recipe list area
     
                 var recipe5Button = document.getElementById("recipe5buttonarea5"); // targets the recipe 5 button
                 recipe5Button.addEventListener("click", displayRecipe5); // event listener for the recipe 5 button
                 var recipe5Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId5; // URL for recipe 5
     
+                // Displays Cocktail 5 Videos
+
+                var videos5Button = document.getElementById("videos5Button"); // targets the videos button
+                videos5Button.addEventListener("click", displayVideos); // event listener for the videos button
+
+                var videosSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&videoLicense=creativeCommon&topicId=cocktail&q=" + cocktailName5 + "+cocktail+recipes&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o" // URL for YouTube API Fetch                
+                
+
+                function displayVideos() { // function to fetch YouTube API Data based off a search of the cocktail name
+                    fetch(videosSearchURL).then(function(response) {
+                        return response.json();
+                    }).then (function(videoData) {
+                        console.log(videoData);
+                        videoId1 = videoData.items[0].id.videoId;
+                        videoId2 = videoData.items[1].id.videoId;
+                        videoId3 = videoData.items[2].id.videoId;
+                        videoId4 = videoData.items[3].id.videoId;
+                        videoId5 = videoData.items[4].id.videoId;
+                        videoResultsArea.innerHTML = '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId1 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId2 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId3 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId4 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>' + '&nbsp;' + '<iframe width="800" height="450" src="https://www.youtube.com/embed/' + videoId5 + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>'; // Adds video embeds to video section
+                    })
+                }
+
+                // Displays Recipe 5
+
                 function displayRecipe5() {
                     fetch(recipe5Url).then(function(response) { // Fetch request for the full recipe data
                         return response.json();
