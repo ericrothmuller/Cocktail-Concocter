@@ -1,4 +1,4 @@
-// TheCocktailDB API
+// TheCocktailDB API li
 
 // Universal Variables
 
@@ -102,8 +102,20 @@ function addIngredient(event) {
 
 // Add Ingredient Button
 
-ingredientForm.addEventListener("submit", addIngredient);
+function ingredientListAdd(event) {
+    event.preventDefault();
+    if (ingredientTextInput.value){
+        var inputKey = ingredientTextInput.value
+        var makeList = document.createElement("li");
+        var listIngredientn = document.createTextNode(inputKey);
+        
+        makeList.appendChild(listIngredientn);
+        document.getElementById("ingredientlist").append(makeList);
+    }
+}
 
+ingredientForm.addEventListener("submit", addIngredient);
+ingredientForm.addEventListener("submit", ingredientListAdd);
 
 
 
