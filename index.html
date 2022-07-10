@@ -15,7 +15,7 @@
 </head>
 <body class="text-red-900">
     <div class="flex"><!--puts header in flexbox-->
-        <header class="basis-auto sm:mb-3"><!--Header Stylings-->
+        <header class="basis-auto sm:mb-1"><!--Header Stylings-->
             <h1 class="text-2xl font-bold italic text-center sm:pb-2">Cocktail-Concocter</h1>
             <p class="text-xs md:text-sm lg:text-base text-justify mx-2">
                 <b class="text-lg">Welcome to the Cocktail Concocter!</b> Please select the ingredients you'd like to use in the Available Ingredients section. After clicking the search button, you will be displayed the available cocktail recipes.</p>
@@ -23,8 +23,8 @@
     </div>
 
     <main class="flex flex-col sm:flex-row"><!--Main Stylings--><!--\Ingredients Stylings/-->
-            <div id="ingredientdietdiv" class="flex-col sm:w-1/2 h-screen px-2 sm:pl-2">
-                <div id="ingredients" class="">
+            <div id="ingredientdietdiv" class="flex-col sm:w-1/2 px-2 sm:pl-2">
+                <div id="ingredients">
                     <h2 id="ai" class="text-sm lg:text-base italic text-center sm:text-left">Available Ingredients:</h2>
                     <form id="addingredientform" class="flex"> <!--Form Stylings-->
                         <input class="awesomplete" list="mylist" id="addingredienttext"/>
@@ -521,16 +521,20 @@
                <div id="ingredientListDiv">
                  <p id="ingredientlist" class="bg-grey-50"></p>
                </div>
-
+                </br>
                 <div id="searchdiv" class=""><!--Search Div and Button Stylings-->
                     <button id="searchbutton" class="bg-sky-900 hover:bg-lime-900 w-full rounded">Search</button>
                 </div>
+
+                <aside>
+                    <video width="100%" controls>
+                    </video>
+                </aside>
                 
             </div>
 
             <article id="recipediv" class="sm:w-1/2 text-center"><!--Recipe Div Stylings-->
-                <h2 class="italic"><u>Recipes</u></h2>
-                <br />
+                <h2 class="italic"><u>Drinks & Recipies</u></h2>
                 <div id="recipelist1" class="flex flex-col items-center w-4/5 py-10 px-5 box-border"></div>
                 <div id="recipelist1ingredients"></div>
                 <div id="recipelist1recipe"></div>
@@ -549,12 +553,10 @@
             </article>
     </main>
 
-    <aside class="sm:w-1/2 h-full justify-center">
-        <div id="videoresults"></div>
-    </aside>
-
-    <footer class="text-center border-t-2 border-t-sky-900">~End Statement~</footer>
-
+    <div class="flex justify-center">
+        <footer>~End Statement~</footer>
+    </div>  
+    
     <script src="./assets/script.js"></script>
 </body>
 </html>
