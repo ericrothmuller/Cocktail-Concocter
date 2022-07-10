@@ -4,6 +4,8 @@
 
 var searchButton = document.getElementById("searchbutton"); // Search Button ID
 
+var resetButton = document.getElementById("reset"); // Reset Button ID
+
 var ingredientForm = document.getElementById("addingredientform"); // Ingredient Form
 
 var ingredientTextInput = document.getElementById("addingredienttext"); // Ingredient Text Input Area
@@ -90,6 +92,38 @@ function addIngredient(event) {
 
 }
 
+// Add Ingredient Button
+
+function ingredientListAdd(event) {
+    event.preventDefault();
+    if (ingredientTextInput.value){
+        var inputKey = ingredientTextInput.value
+        var makeList = document.createElement("li");
+        var listIngredientn = document.createTextNode(inputKey);
+        makeList.setAttribute("id", "LI")
+        
+        makeList.appendChild(listIngredientn);
+        document.getElementById("ingredientlist").append(makeList);
+    }
+}
+
+/* function removeIngredients(event) {
+    event.preventDefault();
+    if (ingredientListArea.value) {
+        var makeList = document.createElement("li");
+        var removeItem = document.getElementById(makeList.value);
+
+        document.getElementById("LI").remove(eleven)
+
+    }
+} */
+
+ingredientForm.addEventListener("submit", addIngredient);
+ingredientForm.addEventListener("submit", ingredientListAdd);
+/* resetButton.addEventListener("click", removeIngredients) */
+
+
+
 // function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
 //     ingredientListArea.innerHTML = "";
 //     ingredientListArea.innerHTML = addIngredientList;
@@ -99,25 +133,6 @@ function addIngredient(event) {
 // if (localStorage.getItem(inputKey)) { // checks it here is items
 // clearAndAddIngredients();
 // }
-
-// Add Ingredient Button
-
-function ingredientListAdd(event) {
-    event.preventDefault();
-    if (ingredientTextInput.value){
-        var inputKey = ingredientTextInput.value
-        var makeList = document.createElement("li");
-        var listIngredientn = document.createTextNode(inputKey);
-        
-        makeList.appendChild(listIngredientn);
-        document.getElementById("ingredientlist").append(makeList);
-    }
-}
-
-ingredientForm.addEventListener("submit", addIngredient);
-ingredientForm.addEventListener("submit", ingredientListAdd);
-
-
 
 
 
