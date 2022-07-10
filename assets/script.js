@@ -314,9 +314,9 @@ var executeSearch = function fetchFoundRecipe() {
             var cocktailImage2 = cocktail.drinks[1].strDrinkThumb; // grabs cocktail drink 2's image url
             var cocktailId2 = cocktail.drinks[1].idDrink; // grabs cocktail drink 2's product ID
 
-            recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
+            recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe2buttonarea2" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
 
-            var recipe2Button = document.getElementById("recipe2buttonarea"); // targets the recipe 2 button
+            var recipe2Button = document.getElementById("recipe2buttonarea2"); // targets the recipe 2 button
             var recipe2Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId2; // URL for recipe 2
 
             function displayRecipe2() {
@@ -324,7 +324,10 @@ var executeSearch = function fetchFoundRecipe() {
                     return response.json();
                 }).then (function(recipe) { // function to display recipe
                     
-                    var individualIngredientsOne = recipe.drinks[1].strMeasure1 + ": " + recipe.drinks[1].strIngredient1; // creates the text for the ingredient 2 and it's amount
+
+                    console.log(recipe2Url);
+
+                    var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 2 and it's amount
                     var ingredientListItems2 = document.createTextNode(individualIngredientsOne); // stores the ingredient 2 string
 
                     var createLi = document.createElement("li"); // creates a List Item
@@ -333,9 +336,9 @@ var executeSearch = function fetchFoundRecipe() {
 
 
 
-                    if (recipe.drinks[1].strIngredient2) {
+                    if (recipe.drinks[0].strIngredient2) {
 
-                    var individualIngredientsTwo = recipe.drinks[1].strMeasure2 + ": " + recipe.drinks[1].strIngredient2; // creates the text for the ingredient 1 and it's amount
+                    var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 1 and it's amount
                     var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 1 string
 
                     var createLi = document.createElement("li"); // creates a List Item
@@ -344,9 +347,9 @@ var executeSearch = function fetchFoundRecipe() {
                 }
 
 
-                    if (recipe.drinks[1].strIngredient3) {
+                    if (recipe.drinks[0].strIngredient3) {
 
-                    var individualIngredientsThree = recipe.drinks[1].strMeasure3 + ": " + recipe.drinks[1].strIngredient3; // creates the text for the ingredient 1 and it's amount
+                    var individualIngredientsThree = recipe.drinks[0].strMeasure3 + ": " + recipe.drinks[0].strIngredient3; // creates the text for the ingredient 1 and it's amount
                     var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 1 string
 
                     var createLi = document.createElement("li"); // creates a List Item
@@ -355,9 +358,9 @@ var executeSearch = function fetchFoundRecipe() {
                     }
 
 
-                    if (recipe.drinks[1].strIngredient4) {
+                    if (recipe.drinks[0].strIngredient4) {
 
-                        var individualIngredientsFour = recipe.drinks[1].strMeasure4 + ": " + recipe.drinks[1].strIngredient4; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsFour = recipe.drinks[0].strMeasure4 + ": " + recipe.drinks[0].strIngredient4; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 1 string
     
                         var createLi = document.createElement("li"); // creates a List Item
@@ -366,9 +369,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient5) {
+                    if (recipe.drinks[0].strIngredient5) {
 
-                        var individualIngredientsFive = recipe.drinks[1].strMeasure5 + ": " + recipe.drinks[1].strIngredient5; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsFive = recipe.drinks[0].strMeasure5 + ": " + recipe.drinks[0].strIngredient5; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -377,9 +380,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient6) {
+                    if (recipe.drinks[0].strIngredient6) {
 
-                        var individualIngredientsSix = recipe.drinks[1].strMeasure6 + ": " + recipe.drinks[1].strIngredient6; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsSix = recipe.drinks[0].strMeasure6 + ": " + recipe.drinks[0].strIngredient6; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -388,9 +391,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient7) {
+                    if (recipe.drinks[0].strIngredient7) {
 
-                        var individualIngredientsSeven = recipe.drinks[1].strMeasure7 + ": " + recipe.drinks[1].strIngredient7; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsSeven = recipe.drinks[0].strMeasure7 + ": " + recipe.drinks[0].strIngredient7; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -399,9 +402,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient8) {
+                    if (recipe.drinks[0].strIngredient8) {
 
-                        var individualIngredientsEight = recipe.drinks[1].strMeasure8 + ": " + recipe.drinks[1].strIngredient8; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsEight = recipe.drinks[0].strMeasure8 + ": " + recipe.drinks[0].strIngredient8; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -410,9 +413,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient9) {
+                    if (recipe.drinks[0].strIngredient9) {
 
-                        var individualIngredientsNine = recipe.drinks[1].strMeasure9 + ": " + recipe.drinks[1].strIngredient9; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsNine = recipe.drinks[0].strMeasure9 + ": " + recipe.drinks[0].strIngredient9; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -421,9 +424,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient10) {
+                    if (recipe.drinks[0].strIngredient10) {
 
-                        var individualIngredientsTen = recipe.drinks[1].strMeasure10 + ": " + recipe.drinks[1].strIngredient10; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsTen = recipe.drinks[0].strMeasure10 + ": " + recipe.drinks[0].strIngredient10; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -432,9 +435,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient11) {
+                    if (recipe.drinks[0].strIngredient11) {
 
-                        var individualIngredientsEleven = recipe.drinks[1].strMeasure11 + ": " + recipe.drinks[1].strIngredient11; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsEleven = recipe.drinks[0].strMeasure11 + ": " + recipe.drinks[0].strIngredient11; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -443,9 +446,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient12) {
+                    if (recipe.drinks[0].strIngredient12) {
 
-                        var individualIngredientsTwelve = recipe.drinks[1].strMeasure12 + ": " + recipe.drinks[1].strIngredient12; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsTwelve = recipe.drinks[0].strMeasure12 + ": " + recipe.drinks[0].strIngredient12; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -454,9 +457,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient13) {
+                    if (recipe.drinks[0].strIngredient13) {
 
-                        var individualIngredientsThirteen = recipe.drinks[1].strMeasure13 + ": " + recipe.drinks[1].strIngredient13; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsThirteen = recipe.drinks[0].strMeasure13 + ": " + recipe.drinks[0].strIngredient13; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -465,9 +468,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient14) {
+                    if (recipe.drinks[0].strIngredient14) {
 
-                        var individualIngredientsFourteen = recipe.drinks[1].strMeasure14 + ": " + recipe.drinks[1].strIngredient14; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsFourteen = recipe.drinks[0].strMeasure14 + ": " + recipe.drinks[0].strIngredient14; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -476,9 +479,9 @@ var executeSearch = function fetchFoundRecipe() {
                         }
 
 
-                    if (recipe.drinks[1].strIngredient15) {
+                    if (recipe.drinks[0].strIngredient15) {
 
-                        var individualIngredientsFifteen = recipe.drinks[1].strMeasure15 + ": " + recipe.drinks[1].strIngredient15; // creates the text for the ingredient 1 and it's amount
+                        var individualIngredientsFifteen = recipe.drinks[0].strMeasure15 + ": " + recipe.drinks[0].strIngredient15; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 1 string
         
                         var createLi = document.createElement("li"); // creates a List Item
@@ -486,8 +489,8 @@ var executeSearch = function fetchFoundRecipe() {
                         recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
                         }
 
-                    var cocktail1Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 1's instructions
-                    recipeListArea1recipe.innerHTML = cocktail1Instructions; + '<br/>' // Displays recipe 1 instructions
+                    var cocktail2Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 2's instructions
+                    recipeListArea2recipe.innerHTML = cocktail2Instructions; // Displays recipe 2 instructions
                 })
             }
 
