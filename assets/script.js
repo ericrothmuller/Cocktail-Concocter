@@ -121,7 +121,7 @@ var executeSearch = function fetchFoundRecipe() {
         return response.json();
     }).then (function (data) {
 
-        if (data.drinks[0].strDrink) { // Checks to see if there are drinks to display based on the search
+        if (data.drinks[0]) { // Checks to see if there are drinks to display based on the search
 
             // Displays Cocktails
 
@@ -136,6 +136,7 @@ var executeSearch = function fetchFoundRecipe() {
                 recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName1 + '</h2> <br /> <img src="' + cocktailImage1 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 1 in the recipe list area
     
                 var recipe1Button = document.getElementById("recipe1buttonarea"); // targets the recipe 1 button
+                recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
                 var recipe1Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId1; // URL for recipe 1
     
                 function displayRecipe1() {
@@ -309,7 +310,8 @@ var executeSearch = function fetchFoundRecipe() {
                         recipeListArea1recipe.innerHTML = cocktail1Instructions; + '<br/>' // Displays recipe 1 instructions
                     })
                 }
-    
+
+                if (data.drinks[1]) {
                             // Displays Cocktail 2
     
                 var cocktailName2 = cocktail.drinks[1].strDrink; // grabs cocktail drink 2's name
@@ -319,6 +321,7 @@ var executeSearch = function fetchFoundRecipe() {
                 recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe2buttonarea2" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
     
                 var recipe2Button = document.getElementById("recipe2buttonarea2"); // targets the recipe 2 button
+                recipe2Button.addEventListener("click", displayRecipe2); // event listener for the recipe 2 button
                 var recipe2Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId2; // URL for recipe 2
     
                 function displayRecipe2() {
@@ -492,8 +495,10 @@ var executeSearch = function fetchFoundRecipe() {
                         recipeListArea2recipe.innerHTML = cocktail2Instructions; // Displays recipe 2 instructions
                     })
                 }
+            }
     
-    
+
+            if (data.drinks[2]) {
                             // Displays Cocktail 3
     
                 var cocktailName3 = cocktail.drinks[2].strDrink; // grabs cocktail drink 2's name
@@ -503,6 +508,7 @@ var executeSearch = function fetchFoundRecipe() {
                 recipeListArea3.innerHTML = '<hr />' + '<h2>' + cocktailName3 + '</h2> <br /> <img src="' + cocktailImage3 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe3buttonarea3" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
     
                 var recipe3Button = document.getElementById("recipe3buttonarea3"); // targets the recipe 2 button
+                recipe3Button.addEventListener("click", displayRecipe3); // event listener for the recipe 3 button
                 var recipe3Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId3; // URL for recipe 2
     
                 function displayRecipe3() {
@@ -676,8 +682,10 @@ var executeSearch = function fetchFoundRecipe() {
                         recipeListArea3recipe.innerHTML = cocktail3Instructions; // Displays recipe 2 instructions
                     })
                 }
-    
-    
+            }
+
+
+            if (data.drinks[3]) {
                             // Displays Cocktail 4
     
                 var cocktailName4 = cocktail.drinks[3].strDrink; // grabs cocktail drink 2's name
@@ -687,6 +695,7 @@ var executeSearch = function fetchFoundRecipe() {
                 recipeListArea4.innerHTML = '<hr />' + '<h2>' + cocktailName4 + '</h2> <br /> <img src="' + cocktailImage4 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe4buttonarea4" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
     
                 var recipe4Button = document.getElementById("recipe4buttonarea4"); // targets the recipe 2 button
+                recipe4Button.addEventListener("click", displayRecipe4); // event listener for the recipe 4 button
                 var recipe4Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId4; // URL for recipe 2
     
                 function displayRecipe4() {
@@ -860,8 +869,10 @@ var executeSearch = function fetchFoundRecipe() {
                         recipeListArea4recipe.innerHTML = cocktail4Instructions; // Displays recipe 2 instructions
                     })
                 }
-    
-    
+            }
+
+
+            if (data.drinks[4]) {
                             // Displays Cocktail 5
     
                 var cocktailName5 = cocktail.drinks[4].strDrink; // grabs cocktail drink 2's name
@@ -871,6 +882,7 @@ var executeSearch = function fetchFoundRecipe() {
                 recipeListArea5.innerHTML = '<hr />' + '<h2>' + cocktailName5 + '</h2> <br /> <img src="' + cocktailImage5 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe5buttonarea5" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
     
                 var recipe5Button = document.getElementById("recipe5buttonarea5"); // targets the recipe 2 button
+                recipe5Button.addEventListener("click", displayRecipe5); // event listener for the recipe 5 button
                 var recipe5Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId5; // URL for recipe 2
     
                 function displayRecipe5() {
@@ -1044,12 +1056,13 @@ var executeSearch = function fetchFoundRecipe() {
                         recipeListArea5recipe.innerHTML = cocktail5Instructions; // Displays recipe 2 instructions
                     })
                 }
-    
-                recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
-                recipe2Button.addEventListener("click", displayRecipe2); // event listener for the recipe 2 button
-                recipe3Button.addEventListener("click", displayRecipe3); // event listener for the recipe 3 button
-                recipe4Button.addEventListener("click", displayRecipe4); // event listener for the recipe 4 button
-                recipe5Button.addEventListener("click", displayRecipe5); // event listener for the recipe 5 button
+            }
+
+                // recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
+                // recipe2Button.addEventListener("click", displayRecipe2); // event listener for the recipe 2 button
+                // recipe3Button.addEventListener("click", displayRecipe3); // event listener for the recipe 3 button
+                // recipe4Button.addEventListener("click", displayRecipe4); // event listener for the recipe 4 button
+                // recipe5Button.addEventListener("click", displayRecipe5); // event listener for the recipe 5 button
     
                 
             }
