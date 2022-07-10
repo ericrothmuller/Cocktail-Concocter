@@ -16,9 +16,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
     width: 80%;
-    padding: 20px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+#recipelist2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+#recipelist3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+#recipelist4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+#recipelist5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 40px 20px;
     box-sizing: border-box;
 }
 
