@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets\awesomplete-gh-pages\awesomplete.css"/>
+    <script src="assets\awesomplete-gh-pages\awesomplete.js" async></script>
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body class="text-red-900">
@@ -24,9 +26,493 @@
             <div id="ingredientdietdiv" class="flex-col sm:w-1/2 h-screen px-2 sm:pl-2">
                 <div id="ingredients" class="">
                     <h2 id="ai" class="text-sm lg:text-base italic text-center sm:text-left">Available Ingredients:</h2>
-                    
                     <form id="addingredientform" class="flex"> <!--Form Stylings-->
-                        <input type="text" class="w-1/2 bg-orange-50 hover:bg-orange-100" id="addingredienttext">
+                        <input class="awesomplete" list="mylist" />
+                        <datalist id="mylist">
+                            <option>Vodka</option>
+                            <option>Gin</option>
+                            <option>Rum</option>
+                            <option>Tequila</option>
+                            <option>Scotch</option>
+                            <option>Absolut Kurant</option>
+                            <option>Absolut Peppar</option>
+                            <option>Absolut Vodka</option>
+                            <option>Advocaat</option>
+                            <option>Aejo Rum</option>
+                            <option>Aftershock</option>
+                            <option>Agave Syrup</option>
+                            <option>Ale</option>
+                            <option>Allspice</option>
+                            <option>Almond Flavoring</option>
+                            <option>Almond</option>
+                            <option>Amaretto</option>
+                            <option>Angelica Root</option>
+                            <option>Angostura Bitters</option>
+                            <option>Anis</option>
+                            <option>Anise</option>
+                            <option>Anisette</option>
+                            <option>Aperol</option>
+                            <option>Apfelkorn</option>
+                            <option>Apple Brandy</option>
+                            <option>Apple Cider</option>
+                            <option>Apple Juice</option>
+                            <option>Apple Schnapps</option>
+                            <option>Apple</option>
+                            <option>Applejack</option>
+                            <option>Apricot Brandy</option>
+                            <option>Apricot Nectar</option>
+                            <option>Apricot</option>
+                            <option>Aquavit</option>
+                            <option>Asafoetida</option>
+                            <option>Añejo Rum</option>
+                            <option>Bacardi Limon</option>
+                            <option>Bacardi</option>
+                            <option>Baileys Irish Cream</option>
+                            <option>Banana Liqueur</option>
+                            <option>Banana Rum</option>
+                            <option>Banana Syrup</option>
+                            <option>Banana</option>
+                            <option>Barenjager</option>
+                            <option>Basil</option>
+                            <option>Beef Stock</option>
+                            <option>Beer</option>
+                            <option>Benedictine</option>
+                            <option>Berries</option>
+                            <option>Bitter lemon</option>
+                            <option>Bitters</option>
+                            <option>Black Pepper</option>
+                            <option>Black Rum</option>
+                            <option>Black Sambuca</option>
+                            <option>Blackberries</option>
+                            <option>Blackberry Brandy</option>
+                            <option>Blackberry Schnapps</option>
+                            <option>Blackcurrant Cordial</option>
+                            <option>Blackcurrant Schnapps</option>
+                            <option>Blackcurrant Squash</option>
+                            <option>Blended Whiskey</option>
+                            <option>Blue Curacao</option>
+                            <option>Blue Maui</option>
+                            <option>Blueberries</option>
+                            <option>Blueberry Schnapps</option>
+                            <option>Bourbon</option>
+                            <option>Brandy</option>
+                            <option>Brown Sugar</option>
+                            <option>Butter</option>
+                            <option>Butterscotch Schnapps</option>
+                            <option>Cachaca</option>
+                            <option>Calvados</option>
+                            <option>Campari</option>
+                            <option>Canadian Whisky</option>
+                            <option>Candy</option>
+                            <option>Cantaloupe</option>
+                            <option>Caramel Coloring</option>
+                            <option>Carbonated Soft Drink</option>
+                            <option>Carbonated Water</option>
+                            <option>Cardamom</option>
+                            <option>Cayenne Pepper</option>
+                            <option>Celery Salt</option>
+                            <option>Celery</option>
+                            <option>Chambord Raspberry Liqueur</option>
+                            <option>Champagne</option>
+                            <option>Cherries</option>
+                            <option>Cherry Brandy</option>
+                            <option>Cherry Cola</option>
+                            <option>Cherry Grenadine</option>
+                            <option>Cherry Heering</option>
+                            <option>Cherry Juice</option>
+                            <option>Cherry Liqueur</option>
+                            <option>Cherry</option>
+                            <option>Chocolate Ice-cream</option>
+                            <option>Chocolate Liqueur</option>
+                            <option>Chocolate Milk</option>
+                            <option>Chocolate Syrup</option>
+                            <option>Chocolate</option>
+                            <option>Cider</option>
+                            <option>Cinnamon Schnapps</option>
+                            <option>Cinnamon</option>
+                            <option>Citrus Vodka</option>
+                            <option>Clamato Juice</option>
+                            <option>Cloves</option>
+                            <option>Club Soda</option>
+                            <option>Coca-Cola</option>
+                            <option>Cocktail Onion</option>
+                            <option>Cocoa Powder</option>
+                            <option>Coconut Cream</option>
+                            <option>Coconut Liqueur</option>
+                            <option>Coconut Milk</option>
+                            <option>Coconut Rum</option>
+                            <option>Coconut Syrup</option>
+                            <option>Coffee Brandy</option>
+                            <option>Coffee Liqueur</option>
+                            <option>Coffee</option>
+                            <option>Cognac</option>
+                            <option>Cointreau</option>
+                            <option>Cola</option>
+                            <option>Cold Water</option>
+                            <option>Condensed Milk</option>
+                            <option>Coriander</option>
+                            <option>Corn Syrup</option>
+                            <option>Cornstarch</option>
+                            <option>Corona</option>
+                            <option>Cranberries</option>
+                            <option>Cranberry Juice</option>
+                            <option>Cranberry Liqueur</option>
+                            <option>Cranberry Vodka</option>
+                            <option>Cream of Coconut</option>
+                            <option>Cream Sherry</option>
+                            <option>Cream Soda</option>
+                            <option>Cream</option>
+                            <option>Creme De Almond</option>
+                            <option>Creme De Banane</option>
+                            <option>Creme De Cacao</option>
+                            <option>Creme De Cassis</option>
+                            <option>Creme De Noyaux</option>
+                            <option>Creme Fraiche</option>
+                            <option>Crown Royal</option>
+                            <option>Crystal Light</option>
+                            <option>Cucumber</option>
+                            <option>Cumin Powder</option>
+                            <option>Cumin Seed</option>
+                            <option>Curacao</option>
+                            <option>Cynar</option>
+                            <option>Daiquiri Mix</option>
+                            <option>Dark Chocolate</option>
+                            <option>Dark Creme De Cacao</option>
+                            <option>Dark Rum</option>
+                            <option>Dark Soy Sauce</option>
+                            <option>Demerara Sugar</option>
+                            <option>Dr. Pepper</option>
+                            <option>Drambuie</option>
+                            <option>Dried Oregano</option>
+                            <option>Dry Vermouth</option>
+                            <option>Dubonnet Blanc</option>
+                            <option>Dubonnet Rouge</option>
+                            <option>Egg White</option>
+                            <option>Egg Yolk</option>
+                            <option>Egg</option>
+                            <option>Eggnog</option>
+                            <option>Erin Cream</option>
+                            <option>Espresso</option>
+                            <option>Everclear</option>
+                            <option>Fanta</option>
+                            <option>Fennel Seeds</option>
+                            <option>Firewater</option>
+                            <option>Flaked Almonds</option>
+                            <option>Food Coloring</option>
+                            <option>Forbidden Fruit</option>
+                            <option>Frangelico</option>
+                            <option>Fresca</option>
+                            <option>Fresh Basil</option>
+                            <option>Fresh Lemon Juice</option>
+                            <option>Fruit Juice</option>
+                            <option>Fruit Punch</option>
+                            <option>Fruit</option>
+                            <option>Galliano</option>
+                            <option>Garlic Sauce</option>
+                            <option>Gatorade</option>
+                            <option>Ginger Ale</option>
+                            <option>Ginger Beer</option>
+                            <option>Ginger</option>
+                            <option>Glycerine</option>
+                            <option>Godiva Liqueur</option>
+                            <option>Gold rum</option>
+                            <option>Gold Tequila</option>
+                            <option>Goldschlager</option>
+                            <option>Grain Alcohol</option>
+                            <option>Grand Marnier</option>
+                            <option>Granulated Sugar</option>
+                            <option>Grape juice</option>
+                            <option>Grape soda</option>
+                            <option>Grapefruit Juice</option>
+                            <option>Grapes</option>
+                            <option>Green Chartreuse</option>
+                            <option>Green Creme de Menthe</option>
+                            <option>Green Ginger Wine</option>
+                            <option>Green Olives</option>
+                            <option>Grenadine</option>
+                            <option>Ground Ginger</option>
+                            <option>Guava juice</option>
+                            <option>Guinness stout</option>
+                            <option>Guinness</option>
+                            <option>Half-and-half</option>
+                            <option>Hawaiian punch</option>
+                            <option>Hazelnut liqueur</option>
+                            <option>Heavy cream</option>
+                            <option>Honey</option>
+                            <option>Hooch</option>
+                            <option>Hot Chocolate</option>
+                            <option>Hot Damn</option>
+                            <option>Hot Sauce</option>
+                            <option>Hpnotiq</option>
+                            <option>Ice-Cream</option>
+                            <option>Ice</option>
+                            <option>Iced tea</option>
+                            <option>Irish cream</option>
+                            <option>Irish Whiskey</option>
+                            <option>Jack Daniels</option>
+                            <option>Jello</option>
+                            <option>Jelly</option>
+                            <option>Jagermeister</option>
+                            <option>Jim Beam</option>
+                            <option>Johnnie Walker</option>
+                            <option>Kahlua</option>
+                            <option>Key Largo Schnapps</option>
+                            <option>Kirschwasser</option>
+                            <option>Kiwi liqueur</option>
+                            <option>Kiwi</option>
+                            <option>Kool-Aid</option>
+                            <option>Kummel</option>
+                            <option>Lager</option>
+                            <option>Lemon Juice</option>
+                            <option>Lemon Peel</option>
+                            <option>Lemon Soda</option>
+                            <option>Lemon vodka</option>
+                            <option>Lemon-lime soda</option>
+                            <option>Lemon-lime</option>
+                            <option>Lemon</option>
+                            <option>Lemonade</option>
+                            <option>Licorice Root</option>
+                            <option>Light Cream</option>
+                            <option>Light Rum</option>
+                            <option>Lillet</option>
+                            <option>Lime Juice Cordial</option>
+                            <option>Lime Juice</option>
+                            <option>Lime Liqueur</option>
+                            <option>Lime Peel</option>
+                            <option>Lime Vodka</option>
+                            <option>Lime</option>
+                            <option>Limeade</option>
+                            <option>Madeira</option>
+                            <option>Malibu Rum</option>
+                            <option>Mandarin</option>
+                            <option>Mandarine Napoleon</option>
+                            <option>Mango</option>
+                            <option>Maple syrup</option>
+                            <option>Maraschino cherry juice</option>
+                            <option>Maraschino Cherry</option>
+                            <option>Maraschino Liqueur</option>
+                            <option>Margarita mix</option>
+                            <option>Marjoram leaves</option>
+                            <option>Marshmallows</option>
+                            <option>Maui</option>
+                            <option>Melon Liqueur</option>
+                            <option>Melon Vodka</option>
+                            <option>Mezcal</option>
+                            <option>Midori Melon Liqueur</option>
+                            <option>Midori</option>
+                            <option>Milk</option>
+                            <option>Mint syrup</option>
+                            <option>Mint</option>
+                            <option>Mountain Dew</option>
+                            <option>Nutmeg</option>
+                            <option>Olive Oil</option>
+                            <option>Olive</option>
+                            <option>Onion</option>
+                            <option>Orange Bitters</option>
+                            <option>Orange Curacao</option>
+                            <option>Orange Juice</option>
+                            <option>Orange liqueur</option>
+                            <option>Orange Peel</option>
+                            <option>Orange rum</option>
+                            <option>Orange Soda</option>
+                            <option>Orange spiral</option>
+                            <option>Orange vodka</option>
+                            <option>Orange</option>
+                            <option>Oreo cookie</option>
+                            <option>Orgeat Syrup</option>
+                            <option>Ouzo</option>
+                            <option>Oyster Sauce</option>
+                            <option>Ouzo</option>
+                            <option>Oyster Sauce</option>
+                            <option>Papaya juice</option>
+                            <option>Papaya</option>
+                            <option>Parfait amour</option>
+                            <option>Passion fruit juice</option>
+                            <option>Passion fruit syrup</option>
+                            <option>Passoa</option>
+                            <option>Peach brandy</option>
+                            <option>Peach juice</option>
+                            <option>Peach liqueur</option>
+                            <option>Peach Nectar</option>
+                            <option>Peach Schnapps</option>
+                            <option>Peach Vodka</option>
+                            <option>Peach</option>
+                            <option>Peachtree schnapps</option>
+                            <option>Peanut Oil</option>
+                            <option>Pepper</option>
+                            <option>Peppermint extract</option>
+                            <option>Peppermint Schnapps</option>
+                            <option>Pepsi Cola</option>
+                            <option>Pernod</option>
+                            <option>Peychaud bitters</option>
+                            <option>Pina colada mix</option>
+                            <option>Pineapple Juice</option>
+                            <option>Pineapple rum</option>
+                            <option>Pineapple vodka</option>
+                            <option>Pineapple-orange-banana juice</option>
+                            <option>Pineapple</option>
+                            <option>Pink lemonade</option>
+                            <option>Pisang Ambon</option>
+                            <option>Pisco</option>
+                            <option>Plain Chocolate</option>
+                            <option>Plain Flour</option>
+                            <option>Plums</option>
+                            <option>Port</option>
+                            <option>Powdered Sugar</option>
+                            <option>Purple passion</option>
+                            <option>Raisins</option>
+                            <option>Raspberry cordial</option>
+                            <option>Raspberry Jam</option>
+                            <option>Raspberry Juice</option>
+                            <option>Raspberry Liqueur</option>
+                            <option>Raspberry schnapps</option>
+                            <option>Raspberry syrup</option>
+                            <option>Raspberry Vodka</option>
+                            <option>Red Chile Flakes</option>
+                            <option>Red Chili Flakes</option>
+                            <option>Red Hot Chili Flakes</option>
+                            <option>Red Wine</option>
+                            <option>Rhubarb</option>
+                            <option>Ricard</option>
+                            <option>Rock Salt</option>
+                            <option>Root beer schnapps</option>
+                            <option>Root beer</option>
+                            <option>Roses sweetened lime juice</option>
+                            <option>Rosewater</option>
+                            <option>Rumple Minze</option>
+                            <option>Rye Whiskey</option>
+                            <option>Sake</option>
+                            <option>Salt</option>
+                            <option>Sambuca</option>
+                            <option>Sarsaparilla</option>
+                            <option>Schnapps</option>
+                            <option>Schweppes Lemon</option>
+                            <option>Schweppes Russchian</option>
+                            <option>Sherbet</option>
+                            <option>Sherry</option>
+                            <option>Sirup of roses</option>
+                            <option>Sloe Gin</option>
+                            <option>Soda Water</option>
+                            <option>Sour Apple Pucker</option>
+                            <option>Sour Mix</option>
+                            <option>Southern Comfort</option>
+                            <option>Soy Milk</option>
+                            <option>Soy Sauce</option>
+                            <option>Soya Milk</option>
+                            <option>Soya Sauce</option>
+                            <option>Spiced Rum</option>
+                            <option>Sprite</option>
+                            <option>Squeezed Orange</option>
+                            <option>Squirt</option>
+                            <option>Strawberries</option>
+                            <option>Strawberry juice</option>
+                            <option>Strawberry liqueur</option>
+                            <option>Strawberry Schnapps</option>
+                            <option>Strawberry syrup</option>
+                            <option>Sugar Syrup</option>
+                            <option>Sugar</option>
+                            <option>Sunny delight</option>
+                            <option>Surge</option>
+                            <option>Swedish punsch</option>
+                            <option>Sweet and Sour</option>
+                            <option>Sweet Cream</option>
+                            <option>Sweet Vermouth</option>
+                            <option>Tabasco Sauce</option>
+                            <option>Tang</option>
+                            <option>Tawny port</option>
+                            <option>Tea</option>
+                            <option>Tennessee whiskey</option>
+                            <option>Tequila rose</option>
+                            <option>Tia Maria</option>
+                            <option>Tomato Juice</option>
+                            <option>Tomato</option>
+                            <option>Tonic Water</option>
+                            <option>Triple Sec</option>
+                            <option>Tropicana</option>
+                            <option>Tuaca</option>
+                            <option>Vanilla extract</option>
+                            <option>Vanilla Ice-Cream</option>
+                            <option>Vanilla liqueur</option>
+                            <option>Vanilla schnapps</option>
+                            <option>Vanilla syrup</option>
+                            <option>Vanilla vodka</option>
+                            <option>Vanilla</option>
+                            <option>Vermouth</option>
+                            <option>Vinegar</option>
+                            <option>Water</option>
+                            <option>Watermelon schnapps</option>
+                            <option>Whipped Cream</option>
+                            <option>Whipping Cream</option>
+                            <option>White chocolate liqueur</option>
+                            <option>White Creme de Menthe</option>
+                            <option>White grape juice</option>
+                            <option>White port</option>
+                            <option>White Rum</option>
+                            <option>White Vinegar</option>
+                            <option>White Wine</option>
+                            <option>Wild Turkey</option>
+                            <option>Wildberry schnapps</option>
+                            <option>Wine</option>
+                            <option>Worcestershire Sauce</option>
+                            <option>Wormwood</option>
+                            <option>Yeast</option>
+                            <option>Yellow Chartreuse</option>
+                            <option>Yoghurt</option>
+                            <option>Yukon Jack</option>
+                            <option>Zima</option>
+                            <option>Caramel Sauce</option>
+                            <option>Chocolate Sauce</option>
+                            <option>Lillet Blanc</option>
+                            <option>Peach Bitters</option>
+                            <option>Mini-snickers bars</option>
+                            <option>Prosecco</option>
+                            <option>Salted Chocolate</option>
+                            <option>Martini Rosso</option>
+                            <option>Martini Bianco</option>
+                            <option>Martini Extra Dry</option>
+                            <option>Fresh Lime Juice</option>
+                            <option>Fresh Mint</option>
+                            <option>Rosemary</option>
+                            <option>Habanero Peppers</option>
+                            <option>Ilegal Joven mezcal</option>
+                            <option>Elderflower cordial</option>
+                            <option>Rosso Vermouth</option>
+                            <option>Dry Curacao</option>
+                            <option>Averna</option>
+                            <option>Ramazzotti</option>
+                            <option>Fernet-Branca</option>
+                            <option>Allspice Dram</option>
+                            <option>Falernum</option>
+                            <option>Blackstrap rum</option>
+                            <option>Ginger Syrup</option>
+                            <option>Honey syrup</option>
+                            <option>Blended Scotch</option>
+                            <option>Islay single malt Scotch</option>
+                            <option>151 proof rum</option>
+                            <option>7-up</option>
+                            <option>Absinthe</option>
+                            <option>Absolut citron</option>
+                            <option>Creme de Mure</option>
+                            <option>Olive Brine</option>
+                            <option>Pineapple Syrup</option>
+                            <option>St. Germain</option>
+                            <option>Lavender</option>
+                            <option>Whiskey</option>
+                            <option>Pomegranate juice</option>
+                            <option>Watermelon</option>
+                            <option>Cinnamon Whisky</option>
+                            <option>Red Bull</option>
+                            <option>Diet Coke</option>
+                            <option>Rosemary Syrup</option>
+                            <option>Figs</option>
+                            <option>Thyme</option>
+                            <option>Orange Slice</option>
+                            <option>Blood Orange</option>
+                            <option>Amaro Montenegro</option>
+                            <option>Ruby Port</option>
+                            <option>Rose</option>
+                            <option>Tajin</option>
+                        </datalist>
                         <input type="submit"class="px-1 bg-sky-900 hover:bg-lime-900">
                     </form>
                     <hr />
