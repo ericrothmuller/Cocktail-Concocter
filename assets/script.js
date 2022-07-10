@@ -87,12 +87,11 @@ function addIngredient(event) {
         ingredientLocalStorageArr.push(inputValue); // Adds ingredient to ingredientLocalStorageArr
         ingredientLocalStorageArr = removeDuplicate(ingredientLocalStorageArr); // removed duplicates from ingredientLocalStorageArr
 
-
     }
 
 }
 
-// Add Ingredient Button
+// Add Ingredient List
 
 function ingredientListAdd(event) {
     event.preventDefault();
@@ -104,6 +103,7 @@ function ingredientListAdd(event) {
         
         makeList.appendChild(listIngredientn);
         document.getElementById("ingredientlist").append(makeList);
+        ingredientTextInput.value = '';
     }
 }
 
