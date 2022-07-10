@@ -144,6 +144,7 @@ var executeSearch = function fetchFoundRecipe() {
                         return response.json();
                     }).then (function(recipe) { // function to display recipe
                         
+                        recipe1Button.disabled = true;
                         var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 1 and it's amount
                         var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 1 string
     
@@ -329,6 +330,7 @@ var executeSearch = function fetchFoundRecipe() {
                         return response.json();
                     }).then (function(recipe) { // function to display recipe
     
+                        recipe2Button.disabled = true;
                         var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 2 and it's amount
                         var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 2 string
     
@@ -516,6 +518,7 @@ var executeSearch = function fetchFoundRecipe() {
                         return response.json();
                     }).then (function(recipe) { // function to display recipe
     
+                        recipe3Button.disabled = true;
                         var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 3 and it's amount
                         var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 3 string
     
@@ -703,6 +706,7 @@ var executeSearch = function fetchFoundRecipe() {
                         return response.json();
                     }).then (function(recipe) { // function to display recipe
     
+                        recipe4Button.disabled = true;
                         var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 4 and it's amount
                         var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 4 string
     
@@ -890,6 +894,7 @@ var executeSearch = function fetchFoundRecipe() {
                         return response.json();
                     }).then (function(recipe) { // function to display recipe
     
+                        recipe5Button.disabled = true;
                         var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 5 and it's amount
                         var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 5 string
     
