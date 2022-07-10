@@ -3,7 +3,32 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
-    background-color: ghostwhite;
+    background-color: rgb(255, 253, 253);
+    color: rgb(51, 6, 6)
+}
+
+header h1 {
+    font-family: 'croissant one';
+}
+
+header p {
+    font-family: "marck script";
+}
+
+#ai {
+    font-family: 'croissant one';
+}
+
+form {
+    font-family: 'croissant one'
+}
+
+#searchbutton {
+    font-family: 'croissant one'
+}
+
+h2 {
+    font-family: 'croissant one'
 }
 
 #recipediv {
@@ -19,6 +44,15 @@
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist1ingredients {
+    font-family: "marck script";
+}
+
+#recipelist1recipe {
+    font-family: "marck script";
 }
 
 #recipelist2 {
@@ -28,6 +62,15 @@
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist2ingredients {
+    font-family: "marck script";
+}
+
+#recipelist2recipe {
+    font-family: "marck script";
 }
 
 #recipelist3 {
@@ -37,7 +80,17 @@
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
 }
+
+#recipelist3ingredients {
+    font-family: "marck script";
+}
+
+#recipelist3recipe {
+    font-family: "marck script";
+}
+
 
 #recipelist4 {
     display: flex;
@@ -46,6 +99,15 @@
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist4ingredients {
+    font-family: "marck script";
+}
+
+#recipelist4recipe {
+    font-family: "marck script";
 }
 
 #recipelist5 {
@@ -55,6 +117,15 @@
     width: 80%;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'croissant one';
+}
+
+#recipelist5ingredients {
+    font-family: "marck script";
+}
+
+#recipelist5recipe {
+    font-family: "marck script";
 }
 
 img {
@@ -62,4 +133,8 @@ img {
     height: auto;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+footer {
+    font-family: 'marck script';
 }

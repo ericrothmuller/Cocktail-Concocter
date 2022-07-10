@@ -121,391 +121,955 @@ var executeSearch = function fetchFoundRecipe() {
         return response.json();
     }).then (function (data) {
 
+        if (data.drinks[0]) { // Checks to see if there are drinks to display based on the search
+
             // Displays Cocktails
 
-        function displayCocktails(cocktail) { //Function that get's the cocktails data and displays it
+            function displayCocktails(cocktail) { //Function that get's the cocktails data and displays it
 
-            // Displays Cocktail 1
-
-            var cocktailName1 = cocktail.drinks[0].strDrink; // grabs cocktail drink 1's name
-            var cocktailImage1 = cocktail.drinks[0].strDrinkThumb; // grabs cocktail drink 1's image url
-            var cocktailId1 = cocktail.drinks[0].idDrink; // grabs cocktail drink 1's product ID
-
-            recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName1 + '</h2> <br /> <img src="' + cocktailImage1 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 1 in the recipe list area
-
-            var recipe1Button = document.getElementById("recipe1buttonarea"); // targets the recipe 1 button
-            var recipe1Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId1; // URL for recipe 1
-
-            function displayRecipe1() {
-                fetch(recipe1Url).then(function(response) { // Fetch request for the full recipe data
-                    return response.json();
-                }).then (function(recipe) { // function to display recipe
-                    
-                    var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 1 and it's amount
-                    var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 1 string
-
-                    var createLi = document.createElement("li"); // creates a List Item
-                    createLi.appendChild(ingredientListItems1); // adds ingredient to list
-                    recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-
-
-
-                    if (recipe.drinks[0].strIngredient2) {
-
-                    var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 1 and it's amount
-                    var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 1 string
-
-                    var createLi = document.createElement("li"); // creates a List Item
-                    createLi.appendChild(ingredientListItems2); // adds ingredient to list
-                    recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                }
-
-
-                    if (recipe.drinks[0].strIngredient3) {
-
-                    var individualIngredientsThree = recipe.drinks[0].strMeasure3 + ": " + recipe.drinks[0].strIngredient3; // creates the text for the ingredient 1 and it's amount
-                    var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 1 string
-
-                    var createLi = document.createElement("li"); // creates a List Item
-                    createLi.appendChild(ingredientListItems3); // adds ingredient to list
-                    recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                    }
-
-
-                    if (recipe.drinks[0].strIngredient4) {
-
-                        var individualIngredientsFour = recipe.drinks[0].strMeasure4 + ": " + recipe.drinks[0].strIngredient4; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 1 string
+                // Displays Cocktail 1
+    
+                var cocktailName1 = cocktail.drinks[0].strDrink; // grabs cocktail drink 1's name
+                var cocktailImage1 = cocktail.drinks[0].strDrinkThumb; // grabs cocktail drink 1's image url
+                var cocktailId1 = cocktail.drinks[0].idDrink; // grabs cocktail drink 1's product ID
+    
+                recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName1 + '</h2> <br /> <img src="' + cocktailImage1 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 1 in the recipe list area
+    
+                var recipe1Button = document.getElementById("recipe1buttonarea"); // targets the recipe 1 button
+                recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
+                var recipe1Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId1; // URL for recipe 1
+    
+                function displayRecipe1() {
+                    fetch(recipe1Url).then(function(response) { // Fetch request for the full recipe data
+                        return response.json();
+                    }).then (function(recipe) { // function to display recipe
+                        
+                        recipe1Button.disabled = true;
+                        var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 1 and it's amount
+                        var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 1 string
     
                         var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems4); // adds ingredient to list
+                        createLi.appendChild(ingredientListItems1); // adds ingredient to list
                         recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient5) {
-
-                        var individualIngredientsFive = recipe.drinks[0].strMeasure5 + ": " + recipe.drinks[0].strIngredient5; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems5); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient6) {
-
-                        var individualIngredientsSix = recipe.drinks[0].strMeasure6 + ": " + recipe.drinks[0].strIngredient6; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems6); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient7) {
-
-                        var individualIngredientsSeven = recipe.drinks[0].strMeasure7 + ": " + recipe.drinks[0].strIngredient7; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems7); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient8) {
-
-                        var individualIngredientsEight = recipe.drinks[0].strMeasure8 + ": " + recipe.drinks[0].strIngredient8; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems8); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient9) {
-
-                        var individualIngredientsNine = recipe.drinks[0].strMeasure9 + ": " + recipe.drinks[0].strIngredient9; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems9); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient10) {
-
-                        var individualIngredientsTen = recipe.drinks[0].strMeasure10 + ": " + recipe.drinks[0].strIngredient10; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems10); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient11) {
-
-                        var individualIngredientsEleven = recipe.drinks[0].strMeasure11 + ": " + recipe.drinks[0].strIngredient11; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems11); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient12) {
-
-                        var individualIngredientsTwelve = recipe.drinks[0].strMeasure12 + ": " + recipe.drinks[0].strIngredient12; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems12); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient13) {
-
-                        var individualIngredientsThirteen = recipe.drinks[0].strMeasure13 + ": " + recipe.drinks[0].strIngredient13; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems13); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient14) {
-
-                        var individualIngredientsFourteen = recipe.drinks[0].strMeasure14 + ": " + recipe.drinks[0].strIngredient14; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems14); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[0].strIngredient15) {
-
-                        var individualIngredientsFifteen = recipe.drinks[0].strMeasure15 + ": " + recipe.drinks[0].strIngredient15; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems15); // adds ingredient to list
-                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-                    var cocktail1Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 1's instructions
-                    recipeListArea1recipe.innerHTML = cocktail1Instructions; + '<br/>' // Displays recipe 1 instructions
-                })
-            }
-
-                        // Displays Cocktail 2
-
-            var cocktailName2 = cocktail.drinks[1].strDrink; // grabs cocktail drink 2's name
-            var cocktailImage2 = cocktail.drinks[1].strDrinkThumb; // grabs cocktail drink 2's image url
-            var cocktailId2 = cocktail.drinks[1].idDrink; // grabs cocktail drink 2's product ID
-
-            recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
-
-            var recipe2Button = document.getElementById("recipe2buttonarea"); // targets the recipe 2 button
-            var recipe2Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId2; // URL for recipe 2
-
-            function displayRecipe2() {
-                fetch(recipe2Url).then(function(response) { // Fetch request for the full recipe data
-                    return response.json();
-                }).then (function(recipe) { // function to display recipe
-                    
-                    var individualIngredientsOne = recipe.drinks[1].strMeasure1 + ": " + recipe.drinks[1].strIngredient1; // creates the text for the ingredient 2 and it's amount
-                    var ingredientListItems2 = document.createTextNode(individualIngredientsOne); // stores the ingredient 2 string
-
-                    var createLi = document.createElement("li"); // creates a List Item
-                    createLi.appendChild(ingredientListItems2); // adds ingredient to list
-                    recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-
-
-
-                    if (recipe.drinks[1].strIngredient2) {
-
-                    var individualIngredientsTwo = recipe.drinks[1].strMeasure2 + ": " + recipe.drinks[1].strIngredient2; // creates the text for the ingredient 1 and it's amount
-                    var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 1 string
-
-                    var createLi = document.createElement("li"); // creates a List Item
-                    createLi.appendChild(ingredientListItems2); // adds ingredient to list
-                    recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                }
-
-
-                    if (recipe.drinks[1].strIngredient3) {
-
-                    var individualIngredientsThree = recipe.drinks[1].strMeasure3 + ": " + recipe.drinks[1].strIngredient3; // creates the text for the ingredient 1 and it's amount
-                    var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 1 string
-
-                    var createLi = document.createElement("li"); // creates a List Item
-                    createLi.appendChild(ingredientListItems3); // adds ingredient to list
-                    recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                    }
-
-
-                    if (recipe.drinks[1].strIngredient4) {
-
-                        var individualIngredientsFour = recipe.drinks[1].strMeasure4 + ": " + recipe.drinks[1].strIngredient4; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 1 string
+    
+    
+    
+                        if (recipe.drinks[0].strIngredient2) {
+    
+                        var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 1 and it's amount
+                        var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 1 string
     
                         var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems4); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient5) {
-
-                        var individualIngredientsFive = recipe.drinks[1].strMeasure5 + ": " + recipe.drinks[1].strIngredient5; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 1 string
-        
+                        createLi.appendChild(ingredientListItems2); // adds ingredient to list
+                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                    }
+    
+    
+                        if (recipe.drinks[0].strIngredient3) {
+    
+                        var individualIngredientsThree = recipe.drinks[0].strMeasure3 + ": " + recipe.drinks[0].strIngredient3; // creates the text for the ingredient 1 and it's amount
+                        var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 1 string
+    
                         var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems5); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                        createLi.appendChild(ingredientListItems3); // adds ingredient to list
+                        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
                         }
-
-
-                    if (recipe.drinks[1].strIngredient6) {
-
-                        var individualIngredientsSix = recipe.drinks[1].strMeasure6 + ": " + recipe.drinks[1].strIngredient6; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 1 string
+    
+    
+                        if (recipe.drinks[0].strIngredient4) {
+    
+                            var individualIngredientsFour = recipe.drinks[0].strMeasure4 + ": " + recipe.drinks[0].strIngredient4; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 1 string
         
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems6); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient7) {
-
-                        var individualIngredientsSeven = recipe.drinks[1].strMeasure7 + ": " + recipe.drinks[1].strIngredient7; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems7); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient8) {
-
-                        var individualIngredientsEight = recipe.drinks[1].strMeasure8 + ": " + recipe.drinks[1].strIngredient8; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems8); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient9) {
-
-                        var individualIngredientsNine = recipe.drinks[1].strMeasure9 + ": " + recipe.drinks[1].strIngredient9; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems9); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient10) {
-
-                        var individualIngredientsTen = recipe.drinks[1].strMeasure10 + ": " + recipe.drinks[1].strIngredient10; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems10); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient11) {
-
-                        var individualIngredientsEleven = recipe.drinks[1].strMeasure11 + ": " + recipe.drinks[1].strIngredient11; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems11); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient12) {
-
-                        var individualIngredientsTwelve = recipe.drinks[1].strMeasure12 + ": " + recipe.drinks[1].strIngredient12; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems12); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient13) {
-
-                        var individualIngredientsThirteen = recipe.drinks[1].strMeasure13 + ": " + recipe.drinks[1].strIngredient13; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems13); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient14) {
-
-                        var individualIngredientsFourteen = recipe.drinks[1].strMeasure14 + ": " + recipe.drinks[1].strIngredient14; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems14); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-
-                    if (recipe.drinks[1].strIngredient15) {
-
-                        var individualIngredientsFifteen = recipe.drinks[1].strMeasure15 + ": " + recipe.drinks[1].strIngredient15; // creates the text for the ingredient 1 and it's amount
-                        var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 1 string
-        
-                        var createLi = document.createElement("li"); // creates a List Item
-                        createLi.appendChild(ingredientListItems15); // adds ingredient to list
-                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
-                        }
-
-                    var cocktail1Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 1's instructions
-                    recipeListArea1recipe.innerHTML = cocktail1Instructions; + '<br/>' // Displays recipe 1 instructions
-                })
-            }
-
-            recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
-            recipe2Button.addEventListener("click", displayRecipe2); // event listener for the recipe 2 button
-
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems4); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient5) {
+    
+                            var individualIngredientsFive = recipe.drinks[0].strMeasure5 + ": " + recipe.drinks[0].strIngredient5; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 1 string
             
-        }
-        displayCocktails(data); // runs the display cocktails function
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems5); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient6) {
+    
+                            var individualIngredientsSix = recipe.drinks[0].strMeasure6 + ": " + recipe.drinks[0].strIngredient6; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems6); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient7) {
+    
+                            var individualIngredientsSeven = recipe.drinks[0].strMeasure7 + ": " + recipe.drinks[0].strIngredient7; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems7); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient8) {
+    
+                            var individualIngredientsEight = recipe.drinks[0].strMeasure8 + ": " + recipe.drinks[0].strIngredient8; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems8); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient9) {
+    
+                            var individualIngredientsNine = recipe.drinks[0].strMeasure9 + ": " + recipe.drinks[0].strIngredient9; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems9); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient10) {
+    
+                            var individualIngredientsTen = recipe.drinks[0].strMeasure10 + ": " + recipe.drinks[0].strIngredient10; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems10); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient11) {
+    
+                            var individualIngredientsEleven = recipe.drinks[0].strMeasure11 + ": " + recipe.drinks[0].strIngredient11; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems11); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient12) {
+    
+                            var individualIngredientsTwelve = recipe.drinks[0].strMeasure12 + ": " + recipe.drinks[0].strIngredient12; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems12); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient13) {
+    
+                            var individualIngredientsThirteen = recipe.drinks[0].strMeasure13 + ": " + recipe.drinks[0].strIngredient13; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems13); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient14) {
+    
+                            var individualIngredientsFourteen = recipe.drinks[0].strMeasure14 + ": " + recipe.drinks[0].strIngredient14; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems14); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient15) {
+    
+                            var individualIngredientsFifteen = recipe.drinks[0].strMeasure15 + ": " + recipe.drinks[0].strIngredient15; // creates the text for the ingredient 1 and it's amount
+                            var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 1 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems15); // adds ingredient to list
+                            recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+                        var cocktail1Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 1's instructions
+                        recipeListArea1recipe.innerHTML = cocktail1Instructions; + '<br/>' // Displays recipe 1 instructions
+                    })
+                }
+
+                if (data.drinks[1]) {
+                            // Displays Cocktail 2
+    
+                var cocktailName2 = cocktail.drinks[1].strDrink; // grabs cocktail drink 2's name
+                var cocktailImage2 = cocktail.drinks[1].strDrinkThumb; // grabs cocktail drink 2's image url
+                var cocktailId2 = cocktail.drinks[1].idDrink; // grabs cocktail drink 2's product ID
+    
+                recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe2buttonarea2" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
+    
+                var recipe2Button = document.getElementById("recipe2buttonarea2"); // targets the recipe 2 button
+                recipe2Button.addEventListener("click", displayRecipe2); // event listener for the recipe 2 button
+                var recipe2Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId2; // URL for recipe 2
+    
+                function displayRecipe2() {
+                    fetch(recipe2Url).then(function(response) { // Fetch request for the full recipe data
+                        return response.json();
+                    }).then (function(recipe) { // function to display recipe
+    
+                        recipe2Button.disabled = true;
+                        var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 2 and it's amount
+                        var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 2 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems1); // adds ingredient to list
+                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+    
+    
+    
+                        if (recipe.drinks[0].strIngredient2) {
+    
+                        var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 2 and it's amount
+                        var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 2 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems2); // adds ingredient to list
+                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                    }
+    
+    
+                        if (recipe.drinks[0].strIngredient3) {
+    
+                        var individualIngredientsThree = recipe.drinks[0].strMeasure3 + ": " + recipe.drinks[0].strIngredient3; // creates the text for the ingredient 2 and it's amount
+                        var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 2 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems3); // adds ingredient to list
+                        recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                        }
+    
+    
+                        if (recipe.drinks[0].strIngredient4) {
+    
+                            var individualIngredientsFour = recipe.drinks[0].strMeasure4 + ": " + recipe.drinks[0].strIngredient4; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 2 string
+        
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems4); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient5) {
+    
+                            var individualIngredientsFive = recipe.drinks[0].strMeasure5 + ": " + recipe.drinks[0].strIngredient5; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems5); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient6) {
+    
+                            var individualIngredientsSix = recipe.drinks[0].strMeasure6 + ": " + recipe.drinks[0].strIngredient6; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems6); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient7) {
+    
+                            var individualIngredientsSeven = recipe.drinks[0].strMeasure7 + ": " + recipe.drinks[0].strIngredient7; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems7); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient8) {
+    
+                            var individualIngredientsEight = recipe.drinks[0].strMeasure8 + ": " + recipe.drinks[0].strIngredient8; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems8); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient9) {
+    
+                            var individualIngredientsNine = recipe.drinks[0].strMeasure9 + ": " + recipe.drinks[0].strIngredient9; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems9); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient10) {
+    
+                            var individualIngredientsTen = recipe.drinks[0].strMeasure10 + ": " + recipe.drinks[0].strIngredient10; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems10); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient11) {
+    
+                            var individualIngredientsEleven = recipe.drinks[0].strMeasure11 + ": " + recipe.drinks[0].strIngredient11; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems11); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient12) {
+    
+                            var individualIngredientsTwelve = recipe.drinks[0].strMeasure12 + ": " + recipe.drinks[0].strIngredient12; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems12); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient13) {
+    
+                            var individualIngredientsThirteen = recipe.drinks[0].strMeasure13 + ": " + recipe.drinks[0].strIngredient13; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems13); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient14) {
+    
+                            var individualIngredientsFourteen = recipe.drinks[0].strMeasure14 + ": " + recipe.drinks[0].strIngredient14; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems14); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient15) {
+    
+                            var individualIngredientsFifteen = recipe.drinks[0].strMeasure15 + ": " + recipe.drinks[0].strIngredient15; // creates the text for the ingredient 2 and it's amount
+                            var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 2 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems15); // adds ingredient to list
+                            recipeListArea2Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+                        var cocktail2Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 2's instructions
+                        recipeListArea2recipe.innerHTML = cocktail2Instructions; // Displays recipe 2 instructions
+                    })
+                }
+            }
+    
+
+            if (data.drinks[2]) {
+                            // Displays Cocktail 3
+    
+                var cocktailName3 = cocktail.drinks[2].strDrink; // grabs cocktail drink 3's name
+                var cocktailImage3 = cocktail.drinks[2].strDrinkThumb; // grabs cocktail drink 3's image url
+                var cocktailId3 = cocktail.drinks[2].idDrink; // grabs cocktail drink 3's product ID
+    
+                recipeListArea3.innerHTML = '<hr />' + '<h2>' + cocktailName3 + '</h2> <br /> <img src="' + cocktailImage3 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe3buttonarea3" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 3 in the recipe list area
+    
+                var recipe3Button = document.getElementById("recipe3buttonarea3"); // targets the recipe 3 button
+                recipe3Button.addEventListener("click", displayRecipe3); // event listener for the recipe 3 button
+                var recipe3Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId3; // URL for recipe 3
+    
+                function displayRecipe3() {
+                    fetch(recipe3Url).then(function(response) { // Fetch request for the full recipe data
+                        return response.json();
+                    }).then (function(recipe) { // function to display recipe
+    
+                        recipe3Button.disabled = true;
+                        var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 3 and it's amount
+                        var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 3 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems1); // adds ingredient to list
+                        recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+    
+    
+    
+                        if (recipe.drinks[0].strIngredient2) {
+    
+                        var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 3 and it's amount
+                        var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 3 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems2); // adds ingredient to list
+                        recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                    }
+    
+    
+                        if (recipe.drinks[0].strIngredient3) {
+    
+                        var individualIngredientsThree = recipe.drinks[0].strMeasure3 + ": " + recipe.drinks[0].strIngredient3; // creates the text for the ingredient 3 and it's amount
+                        var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 3 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems3); // adds ingredient to list
+                        recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                        }
+    
+    
+                        if (recipe.drinks[0].strIngredient4) {
+    
+                            var individualIngredientsFour = recipe.drinks[0].strMeasure4 + ": " + recipe.drinks[0].strIngredient4; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 3 string
+        
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems4); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient5) {
+    
+                            var individualIngredientsFive = recipe.drinks[0].strMeasure5 + ": " + recipe.drinks[0].strIngredient5; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems5); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient6) {
+    
+                            var individualIngredientsSix = recipe.drinks[0].strMeasure6 + ": " + recipe.drinks[0].strIngredient6; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems6); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient7) {
+    
+                            var individualIngredientsSeven = recipe.drinks[0].strMeasure7 + ": " + recipe.drinks[0].strIngredient7; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems7); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient8) {
+    
+                            var individualIngredientsEight = recipe.drinks[0].strMeasure8 + ": " + recipe.drinks[0].strIngredient8; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems8); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient9) {
+    
+                            var individualIngredientsNine = recipe.drinks[0].strMeasure9 + ": " + recipe.drinks[0].strIngredient9; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems9); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient10) {
+    
+                            var individualIngredientsTen = recipe.drinks[0].strMeasure10 + ": " + recipe.drinks[0].strIngredient10; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems10); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient11) {
+    
+                            var individualIngredientsEleven = recipe.drinks[0].strMeasure11 + ": " + recipe.drinks[0].strIngredient11; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems11); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient12) {
+    
+                            var individualIngredientsTwelve = recipe.drinks[0].strMeasure12 + ": " + recipe.drinks[0].strIngredient12; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems12); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient13) {
+    
+                            var individualIngredientsThirteen = recipe.drinks[0].strMeasure13 + ": " + recipe.drinks[0].strIngredient13; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems13); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient14) {
+    
+                            var individualIngredientsFourteen = recipe.drinks[0].strMeasure14 + ": " + recipe.drinks[0].strIngredient14; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems14); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient15) {
+    
+                            var individualIngredientsFifteen = recipe.drinks[0].strMeasure15 + ": " + recipe.drinks[0].strIngredient15; // creates the text for the ingredient 3 and it's amount
+                            var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 3 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems15); // adds ingredient to list
+                            recipeListArea3Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+                        var cocktail3Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 3's instructions
+                        recipeListArea3recipe.innerHTML = cocktail3Instructions; // Displays recipe 3 instructions
+                    })
+                }
+            }
 
 
+            if (data.drinks[3]) {
+                            // Displays Cocktail 4
+    
+                var cocktailName4 = cocktail.drinks[3].strDrink; // grabs cocktail drink 4's name
+                var cocktailImage4 = cocktail.drinks[3].strDrinkThumb; // grabs cocktail drink 4's image url
+                var cocktailId4 = cocktail.drinks[3].idDrink; // grabs cocktail drink 4's product ID
+    
+                recipeListArea4.innerHTML = '<hr />' + '<h2>' + cocktailName4 + '</h2> <br /> <img src="' + cocktailImage4 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe4buttonarea4" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 4 in the recipe list area
+    
+                var recipe4Button = document.getElementById("recipe4buttonarea4"); // targets the recipe 4 button
+                recipe4Button.addEventListener("click", displayRecipe4); // event listener for the recipe 4 button
+                var recipe4Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId4; // URL for recipe 4
+    
+                function displayRecipe4() {
+                    fetch(recipe4Url).then(function(response) { // Fetch request for the full recipe data
+                        return response.json();
+                    }).then (function(recipe) { // function to display recipe
+    
+                        recipe4Button.disabled = true;
+                        var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 4 and it's amount
+                        var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 4 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems1); // adds ingredient to list
+                        recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+    
+    
+    
+                        if (recipe.drinks[0].strIngredient2) {
+    
+                        var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 4 and it's amount
+                        var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 4 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems2); // adds ingredient to list
+                        recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                    }
+    
+    
+                        if (recipe.drinks[0].strIngredient3) {
+    
+                        var individualIngredientsThree = recipe.drinks[0].strMeasure3 + ": " + recipe.drinks[0].strIngredient3; // creates the text for the ingredient 4 and it's amount
+                        var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 4 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems3); // adds ingredient to list
+                        recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                        }
+    
+    
+                        if (recipe.drinks[0].strIngredient4) {
+    
+                            var individualIngredientsFour = recipe.drinks[0].strMeasure4 + ": " + recipe.drinks[0].strIngredient4; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 4 string
+        
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems4); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient5) {
+    
+                            var individualIngredientsFive = recipe.drinks[0].strMeasure5 + ": " + recipe.drinks[0].strIngredient5; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems5); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient6) {
+    
+                            var individualIngredientsSix = recipe.drinks[0].strMeasure6 + ": " + recipe.drinks[0].strIngredient6; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems6); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient7) {
+    
+                            var individualIngredientsSeven = recipe.drinks[0].strMeasure7 + ": " + recipe.drinks[0].strIngredient7; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems7); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient8) {
+    
+                            var individualIngredientsEight = recipe.drinks[0].strMeasure8 + ": " + recipe.drinks[0].strIngredient8; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems8); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient9) {
+    
+                            var individualIngredientsNine = recipe.drinks[0].strMeasure9 + ": " + recipe.drinks[0].strIngredient9; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems9); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient10) {
+    
+                            var individualIngredientsTen = recipe.drinks[0].strMeasure10 + ": " + recipe.drinks[0].strIngredient10; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems10); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient11) {
+    
+                            var individualIngredientsEleven = recipe.drinks[0].strMeasure11 + ": " + recipe.drinks[0].strIngredient11; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems11); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient12) {
+    
+                            var individualIngredientsTwelve = recipe.drinks[0].strMeasure12 + ": " + recipe.drinks[0].strIngredient12; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems12); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient13) {
+    
+                            var individualIngredientsThirteen = recipe.drinks[0].strMeasure13 + ": " + recipe.drinks[0].strIngredient13; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems13); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient14) {
+    
+                            var individualIngredientsFourteen = recipe.drinks[0].strMeasure14 + ": " + recipe.drinks[0].strIngredient14; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems14); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient15) {
+    
+                            var individualIngredientsFifteen = recipe.drinks[0].strMeasure15 + ": " + recipe.drinks[0].strIngredient15; // creates the text for the ingredient 4 and it's amount
+                            var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 4 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems15); // adds ingredient to list
+                            recipeListArea4Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+                        var cocktail4Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 4's instructions
+                        recipeListArea4recipe.innerHTML = cocktail4Instructions; // Displays recipe 4 instructions
+                    })
+                }
+            }
 
 
-
-
-
+            if (data.drinks[4]) {
+                            // Displays Cocktail 5
+    
+                var cocktailName5 = cocktail.drinks[4].strDrink; // grabs cocktail drink 5's name
+                var cocktailImage5 = cocktail.drinks[4].strDrinkThumb; // grabs cocktail drink 5's image url
+                var cocktailId5 = cocktail.drinks[4].idDrink; // grabs cocktail drink 5's product ID
+    
+                recipeListArea5.innerHTML = '<hr />' + '<h2>' + cocktailName5 + '</h2> <br /> <img src="' + cocktailImage5 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe5buttonarea5" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 5 in the recipe list area
+    
+                var recipe5Button = document.getElementById("recipe5buttonarea5"); // targets the recipe 5 button
+                recipe5Button.addEventListener("click", displayRecipe5); // event listener for the recipe 5 button
+                var recipe5Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId5; // URL for recipe 5
+    
+                function displayRecipe5() {
+                    fetch(recipe5Url).then(function(response) { // Fetch request for the full recipe data
+                        return response.json();
+                    }).then (function(recipe) { // function to display recipe
+    
+                        recipe5Button.disabled = true;
+                        var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 5 and it's amount
+                        var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 5 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems1); // adds ingredient to list
+                        recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+    
+    
+    
+                        if (recipe.drinks[0].strIngredient2) {
+    
+                        var individualIngredientsTwo = recipe.drinks[0].strMeasure2 + ": " + recipe.drinks[0].strIngredient2; // creates the text for the ingredient 5 and it's amount
+                        var ingredientListItems2 = document.createTextNode(individualIngredientsTwo); // stores the ingredient 5 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems2); // adds ingredient to list
+                        recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                    }
+    
+    
+                        if (recipe.drinks[0].strIngredient3) {
+    
+                        var individualIngredientsThree = recipe.drinks[0].strMeasure3 + ": " + recipe.drinks[0].strIngredient3; // creates the text for the ingredient 5 and it's amount
+                        var ingredientListItems3 = document.createTextNode(individualIngredientsThree); // stores the ingredient 5 string
+    
+                        var createLi = document.createElement("li"); // creates a List Item
+                        createLi.appendChild(ingredientListItems3); // adds ingredient to list
+                        recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                        }
+    
+    
+                        if (recipe.drinks[0].strIngredient4) {
+    
+                            var individualIngredientsFour = recipe.drinks[0].strMeasure4 + ": " + recipe.drinks[0].strIngredient4; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems4 = document.createTextNode(individualIngredientsFour); // stores the ingredient 5 string
+        
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems4); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient5) {
+    
+                            var individualIngredientsFive = recipe.drinks[0].strMeasure5 + ": " + recipe.drinks[0].strIngredient5; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems5 = document.createTextNode(individualIngredientsFive); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems5); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient6) {
+    
+                            var individualIngredientsSix = recipe.drinks[0].strMeasure6 + ": " + recipe.drinks[0].strIngredient6; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems6 = document.createTextNode(individualIngredientsSix); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems6); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient7) {
+    
+                            var individualIngredientsSeven = recipe.drinks[0].strMeasure7 + ": " + recipe.drinks[0].strIngredient7; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems7 = document.createTextNode(individualIngredientsSeven); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems7); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient8) {
+    
+                            var individualIngredientsEight = recipe.drinks[0].strMeasure8 + ": " + recipe.drinks[0].strIngredient8; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems8 = document.createTextNode(individualIngredientsEight); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems8); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient9) {
+    
+                            var individualIngredientsNine = recipe.drinks[0].strMeasure9 + ": " + recipe.drinks[0].strIngredient9; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems9 = document.createTextNode(individualIngredientsNine); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems9); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient10) {
+    
+                            var individualIngredientsTen = recipe.drinks[0].strMeasure10 + ": " + recipe.drinks[0].strIngredient10; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems10 = document.createTextNode(individualIngredientsTen); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems10); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient11) {
+    
+                            var individualIngredientsEleven = recipe.drinks[0].strMeasure11 + ": " + recipe.drinks[0].strIngredient11; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems11 = document.createTextNode(individualIngredientsEleven); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems11); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient12) {
+    
+                            var individualIngredientsTwelve = recipe.drinks[0].strMeasure12 + ": " + recipe.drinks[0].strIngredient12; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems12 = document.createTextNode(individualIngredientsTwelve); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems12); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient13) {
+    
+                            var individualIngredientsThirteen = recipe.drinks[0].strMeasure13 + ": " + recipe.drinks[0].strIngredient13; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems13 = document.createTextNode(individualIngredientsThirteen); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems13); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient14) {
+    
+                            var individualIngredientsFourteen = recipe.drinks[0].strMeasure14 + ": " + recipe.drinks[0].strIngredient14; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems14 = document.createTextNode(individualIngredientsFourteen); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems14); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+    
+                        if (recipe.drinks[0].strIngredient15) {
+    
+                            var individualIngredientsFifteen = recipe.drinks[0].strMeasure15 + ": " + recipe.drinks[0].strIngredient15; // creates the text for the ingredient 5 and it's amount
+                            var ingredientListItems15 = document.createTextNode(individualIngredientsFifteen); // stores the ingredient 5 string
+            
+                            var createLi = document.createElement("li"); // creates a List Item
+                            createLi.appendChild(ingredientListItems15); // adds ingredient to list
+                            recipeListArea5Ingredients.appendChild(createLi); // appends li to the page
+                            }
+    
+                        var cocktail5Instructions = recipe.drinks[0].strInstructions; // grabs cocktail drink 5's instructions
+                        recipeListArea5recipe.innerHTML = cocktail5Instructions; // Displays recipe 5 instructions
+                    })
+                }
+            }
+                
+            };
+            displayCocktails(data); // runs the display cocktails function
+        } else {
+            recipelist1.innerHTML = "No cocktails were found. Please modify your ingredients and try again."
+        };
     })
-}
+};
 
 
 
