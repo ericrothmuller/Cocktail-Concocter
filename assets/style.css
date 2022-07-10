@@ -26,6 +26,9 @@ form {
     font-family: 'croissant one'
 }
 
+#reset {
+    font-family: 'croissant one';
+}
 h2 {
     font-family: 'croissant one'
 }
@@ -34,6 +37,10 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#ingredientlist {
+    font-family: 'marck script'
 }
 
 #recipelist1 {
@@ -71,7 +78,6 @@ h2 {
 #recipelist3recipe {
     font-family: "marck script";
 }
-
 
 #recipelist4 {
     font-family: 'croissant one';
