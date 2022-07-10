@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets\awesomplete-gh-pages\awesomplete.css"/>
+    <script src="assets\awesomplete-gh-pages\awesomplete.js" async></script>
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body class="text-red-900">
@@ -24,17 +26,18 @@
             <div id="ingredientdietdiv" class="flex-col sm:w-1/2 h-screen px-2 sm:pl-2">
                 <div id="ingredients" class="">
                     <h2 id="ai" class="text-sm lg:text-base italic text-center sm:text-left">Available Ingredients:</h2>
-                    
-<<<<<<< HEAD
-                    
-                    <form class="flex" id="addingredientform"> <!--Form Stylings-->
-                        <input type="text" class="w-1/2 bg-orange-50 hover:bg-orange-50/30" id="addingredienttext">
-                        <input type="submit"class="px-1 bg-teal-100 hover:bg-emerald-800">
-=======
                     <form id="addingredientform" class="flex"> <!--Form Stylings-->
-                        <input type="text" class="w-1/2 bg-orange-50 hover:bg-orange-100" id="addingredienttext">
+                        <input class="awesomplete" list="mylist" />
+                        <datalist id="mylist">
+                            <option>Ada</option>
+                            <option>Java</option>
+                            <option>JavaScript</option>
+                            <option>Brainfuck</option>
+                            <option>LOLCODE</option>
+                            <option>Node.js</option>
+                            <option>Ruby on Rails</option>
+                        </datalist>
                         <input type="submit"class="px-1 bg-sky-900 hover:bg-lime-900">
->>>>>>> 8771c8dc38880aa0aec7716ed80f67a10f950418
                     </form>
                     <hr />
                 </div>
