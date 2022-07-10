@@ -133,12 +133,30 @@ var executeSearch = function fetchFoundRecipe() {
                 var cocktailImage1 = cocktail.drinks[0].strDrinkThumb; // grabs cocktail drink 1's image url
                 var cocktailId1 = cocktail.drinks[0].idDrink; // grabs cocktail drink 1's product ID
     
-                recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName1 + '</h2> <br /> <img src="' + cocktailImage1 + '" /> <br /> <button class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 1 in the recipe list area
+                recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName1 + '</h2> <br /> <img src="' + cocktailImage1 + '" /> <br /> <button id="videos1Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 1 in the recipe list area
     
                 var recipe1Button = document.getElementById("recipe1buttonarea"); // targets the recipe 1 button
                 recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
                 var recipe1Url = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=" + cocktailId1; // URL for recipe 1
-    
+
+                // Displays Cocktail 1 Videos
+
+                var videos1Button = document.getElementById("videos1Button"); // targets the videos button
+                videos1Button.addEventListener("click", displayVideos); // event listener for the videos button
+
+                var videosSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=" + cocktailName1 + "&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o" // URL for YouTube API Fetch                
+                
+
+                function displayVideos() { // function to fetch YouTube API Data based off a search of the cocktail name
+                    fetch(videosSearchURL).then(function(response) {
+                        return response.json();
+                    }).then (function(videoData) {
+                        console.log(videoData);
+                    })
+                }
+
+                // Displays Recipe 1
+
                 function displayRecipe1() {
                     fetch(recipe1Url).then(function(response) { // Fetch request for the full recipe data
                         return response.json();
@@ -1076,3 +1094,22 @@ var executeSearch = function fetchFoundRecipe() {
 // Search Button Event Listener
 
 searchButton.addEventListener("click", executeSearch);
+
+
+
+// YouTube API
+
+// YouTube API Key: AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o
+
+
+
+// cocktailNameOfClicked = 
+
+// videoSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=" + cocktailNameOfClicked + "&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o"
+
+
+// fetch(videoSearchURL).then(function(response) {
+//     return response.json();
+// }).then function(data) {
+//     console.log(data);
+// }
