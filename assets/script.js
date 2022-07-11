@@ -14,6 +14,8 @@ var ingredientListArea = document.getElementById("ingredientlist"); // Ingredien
 
 var videoResultsArea = document.getElementById("videoresults"); // Video Results Area
 
+// var resetButton = document.getElementById("videoresults"); // Video Results Area
+
     // Recipe 1 Variables
 
 var recipeListArea1 = document.getElementById("recipelist1"); // Recipe Header and Image List Area
@@ -92,20 +94,25 @@ function addIngredient(event) {
 
 }
 
-// Add Ingredient List
+// Add Ingredient to Text List
 
 function ingredientListAdd(event) {
     event.preventDefault();
+
     if (ingredientTextInput.value){
         var inputKey = ingredientTextInput.value
         var makeList = document.createElement("li");
         var listIngredientn = document.createTextNode(inputKey);
         makeList.setAttribute("id", "LI")
-        
         makeList.appendChild(listIngredientn);
         document.getElementById("ingredientlist").append(makeList);
         ingredientTextInput.value = '';
     }
+}
+
+function resetPage() {
+    localStorage.clear();
+    location.reload();
 }
 
 /* function removeIngredients(event) {
@@ -132,6 +139,8 @@ function ingredientListAdd(event) {
 
 ingredientForm.addEventListener("submit", addIngredient);
 ingredientForm.addEventListener("submit", ingredientListAdd);
+resetButton.addEventListener("click", resetPage);
+
 /* resetButton.addEventListener("click", removeIngredients) */
 
 
