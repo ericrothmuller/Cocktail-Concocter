@@ -83,9 +83,9 @@ Eric Rothmuller
 
 Austin Park
 
-[E-mail: ](mailto:)
-[GitHub: ]()  
-[LinkdIn: ]()
+[E-mail: apark0819@gmail.com](mailto:apark0819@gmail.com)
+[GitHub: apark0819](https://github.com/apark0819)  
+[LinkdIn: Austin Park](www.linkedin.com/in/austin-park-79b557190)
 
 
 Shmuel Hoffman
