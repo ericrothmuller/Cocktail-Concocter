@@ -14,6 +14,8 @@ var ingredientListArea = document.getElementById("ingredientlist"); // Ingredien
 
 var videoResultsArea = document.getElementById("videoresults"); // Video Results Area
 
+// var resetButton = document.getElementById("videoresults"); // Video Results Area
+
     // Recipe 1 Variables
 
 var recipeListArea1 = document.getElementById("recipelist1"); // Recipe Header and Image List Area
@@ -54,10 +56,7 @@ var recipeListArea5Ingredients = document.getElementById("recipelist5ingredients
 
 var recipeListArea5recipe = document.getElementById("recipelist5recipe"); // Recipe List Area
 
-
-
-
-var ingredientLocalStorageArr = [];
+var ingredientLocalStorageArr = []; // Array to hold ingredient list in order to remove duplicates before it fetches Cocktails
 
 // var ingredientForRecipeURL // Holds ingredient value for TheCocktailDB API URL
 
@@ -74,6 +73,7 @@ function removeDuplicate(arr){
     }
     return resultArr;
 }
+
 
 // Function to add ingredients
 
@@ -93,22 +93,24 @@ function addIngredient(event) {
 
 }
 
-// Add Ingredient List
+
+// Add Ingredient to Text List
 
 function ingredientListAdd(event) {
     event.preventDefault();
+
     if (ingredientTextInput.value){
         var inputKey = ingredientTextInput.value
         var makeList = document.createElement("li");
         var listIngredientn = document.createTextNode(inputKey);
         makeList.setAttribute("id", "LI")
-        
         makeList.appendChild(listIngredientn);
         document.getElementById("ingredientlist").append(makeList);
         ingredientTextInput.value = '';
     }
 }
 
+<<<<<<< HEAD
 
 function removeIngredients(event) {
     event.preventDefault();
@@ -134,14 +136,22 @@ function removeIngredients(event) {
 ingredientForm.addEventListener("submit", addIngredient);
 ingredientForm.addEventListener("submit", ingredientListAdd);
 resetButton.addEventListener("click", removeIngredients); 
+=======
+function resetPage() {
+    localStorage.clear();
+    location.reload();
+}
+>>>>>>> 6722ee319e724e35c0d0b8133e72f607c0fa6ead
 
 
+// Add Button Event Listeners
+
+ingredientForm.addEventListener("submit", addIngredient); // Search For Cocktails
+ingredientForm.addEventListener("submit", ingredientListAdd); // Append Ingredients To Page
+resetButton.addEventListener("click", resetPage); // Reset Button
 
 
-
-
-
-// This gets recipes based on search results
+// This gets cocktails based on search results
 
 var executeSearch = function fetchFoundRecipe() {
 
@@ -154,7 +164,7 @@ var executeSearch = function fetchFoundRecipe() {
         return response.json();
     }).then (function (data) {
 
-        if (data.drinks[0]) { // Checks to see if there are drinks to display based on the search
+        if (data.drinks !== "None Found") { // Checks to see if there are drinks to display based on the search
 
             // Displays Cocktails
 
@@ -1220,35 +1230,15 @@ var executeSearch = function fetchFoundRecipe() {
                 }
             }
                 
-            };
+            }
             displayCocktails(data); // runs the display cocktails function
         } else {
-            recipelist1.innerHTML = "No cocktails were found. Please modify your ingredients and try again."
-        };
+            recipelist1.innerHTML = "<p>No cocktails were found. Please modify your ingredients and try again.</p>"
+        }
     })
 };
-
 
 
 // Search Button Event Listener
 
 searchButton.addEventListener("click", executeSearch);
-
-
-
-// YouTube API
-
-// YouTube API Key: AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o
-
-
-
-// cocktailNameOfClicked = 
-
-// videoSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=" + cocktailNameOfClicked + "&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o"
-
-
-// fetch(videoSearchURL).then(function(response) {
-//     return response.json();
-// }).then function(data) {
-//     console.log(data);
-// }
