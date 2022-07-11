@@ -1204,32 +1204,12 @@ var executeSearch = function fetchFoundRecipe() {
             }
             displayCocktails(data); // runs the display cocktails function
         } else {
-            recipelist1.innerHTML = "No cocktails were found. Please modify your ingredients and try again."
+            recipelist1.innerHTML = "<p>No cocktails were found. Please modify your ingredients and try again.</p>"
         }
     })
 };
 
 
-
 // Search Button Event Listener
 
 searchButton.addEventListener("click", executeSearch);
-
-
-
-// YouTube API
-
-// YouTube API Key: AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o
-
-
-
-// cocktailNameOfClicked = 
-
-// videoSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=" + cocktailNameOfClicked + "&key=AIzaSyBYoIu73MgoqyQ-u7uw0g46li87sdWTl2o"
-
-
-// fetch(videoSearchURL).then(function(response) {
-//     return response.json();
-// }).then function(data) {
-//     console.log(data);
-// }
