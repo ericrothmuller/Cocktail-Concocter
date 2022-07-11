@@ -107,7 +107,8 @@ function ingredientListAdd(event) {
     }
 }
 
-/* function removeIngredients(event) {
+
+/*function removeIngredients(event) {
     event.preventDefault();
     if (ingredientListArea.value) {
         var makeList = document.createElement("li");
