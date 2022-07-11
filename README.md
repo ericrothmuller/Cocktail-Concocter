@@ -2,8 +2,7 @@
 
 [Deployable Link: https://ericrothmuller.github.io/Cocktail-Concocter/](https://ericrothmuller.github.io/Cocktail-Concocter/)
 
-<!-- image of site -->
-<img src="">
+<img src="assets\Screenshot 2022-07-10 214008.png">
 
 ## Description
 
@@ -15,27 +14,61 @@ Cocktail Concocter is a web app that helps a user find a cocktail based on speci
 Technologies used in project include: 
 HTML, CSS, JavaScript, DOM, Github
 CSS Framework- Tailwind
-3rd party APIs- The CocktailDB API, YouTube API, Google Fonts API (croissant One & Marck Script), Awesomplete API (autofill)
+APIs- The CocktailDB API, YouTube API, Google Fonts API (croissant One & Marck Script), Awesomplete API (autofill)
 
 On VS code and GitBash.
 
 
-<!-- ## Tailwind
-## The CocktailDB API
-## YouTube API
-## Awesomplete AP
- -->
-
 
 ## Code and Functionality
 
+### In this HTML code we use the Awsomplete API to autofill the form input, by adding in their 'awesomplete' class to the ```<input>``` :
+```
+<div id="ingredients">
+    <h2 class="sectiontitle"><u>Your Ingredients:</u></h2>
+    <form id="addingredientform" class="flex"> <!--Form Stylings-->
+        <input class="awesomplete" list="mylist" id="addingredienttext"/>
+            <datalist id="mylist">
+``` 
+<img width="50%" src="assets\Screenshot 2022-07-10 215125.png">
 
+
+### Here we have some JavaScript code that fetches the cocktail API appends the ingredients to the list
 ```
+// Displays Recipe 1
+
+function displayRecipe1() {
+    fetch(recipe1Url).then(function(response) { // Fetch request for the full recipe data
+        return response.json();
+    }).then (function(recipe) { // function to display recipe
+                        
+        recipe1Button.disabled = true;
+        var individualIngredientsOne = recipe.drinks[0].strMeasure1 + ": " + recipe.drinks[0].strIngredient1; // creates the text for the ingredient 1 and it's amount
+        
+        var ingredientListItems1 = document.createTextNode(individualIngredientsOne); // stores the ingredient 1 string
+    
+        var createLi = document.createElement("li"); // creates a List Item
+        createLi.appendChild(ingredientListItems1); // adds ingredient to list
+        recipeListArea1Ingredients.appendChild(createLi); // appends li to the page
 ```
 
-
+### With this JavaScript code the when submit is clicked the ingredients are added to a ```<li>``` and appended under the input:
 ```
+function ingredientListAdd(event) {
+    event.preventDefault();
+    if (ingredientTextInput.value){
+        var inputKey = ingredientTextInput.value
+        var makeList = document.createElement("li");
+        var listIngredientn = document.createTextNode(inputKey);
+        makeList.setAttribute("id", "LI")
+        
+        makeList.appendChild(listIngredientn);
+        document.getElementById("ingredientlist").append(makeList);
+        ingredientTextInput.value = '';
+    }
+}
 ```
+<img width="50%" src="assets\ingredientslist.gif">
 
 
 ## Contact Infromation
