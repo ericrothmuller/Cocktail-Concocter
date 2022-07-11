@@ -33,7 +33,7 @@ On VS code and GitBash.
 <img width="50%" src="assets\Screenshot 2022-07-10 215125.png">
 
 
-### Here we have some JavaScript code that fetches the cocktail API appends the ingredients to the list
+### Here we have some JavaScript code that fetches the cocktail API appends the ingredients to the list:
 ```
 // Displays Recipe 1
 
