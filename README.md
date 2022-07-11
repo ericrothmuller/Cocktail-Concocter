@@ -76,9 +76,9 @@ function ingredientListAdd(event) {
 
 Eric Rothmuller
 
-[E-mail: ](mailto:)
-[GitHub: ]()  
-[LinkdIn: ]()
+[E-mail: ](mailto:ericrothmuller@gmail.com)
+[GitHub: ](https://github.com/ericrothmuller)  
+[LinkdIn: Eric-Rothmuller](https://www.linkedin.com/in/eric-rothmuller/)
 
 
 Austin Park
