@@ -56,10 +56,7 @@ var recipeListArea5Ingredients = document.getElementById("recipelist5ingredients
 
 var recipeListArea5recipe = document.getElementById("recipelist5recipe"); // Recipe List Area
 
-
-
-
-var ingredientLocalStorageArr = [];
+var ingredientLocalStorageArr = []; // Array to hold ingredient list in order to remove duplicates before it fetches Cocktails
 
 // var ingredientForRecipeURL // Holds ingredient value for TheCocktailDB API URL
 
@@ -77,6 +74,7 @@ function removeDuplicate(arr){
     return resultArr;
 }
 
+
 // Function to add ingredients
 
 function addIngredient(event) {
@@ -93,6 +91,7 @@ function addIngredient(event) {
     }
 
 }
+
 
 // Add Ingredient to Text List
 
@@ -115,41 +114,15 @@ function resetPage() {
     location.reload();
 }
 
-/* function removeIngredients(event) {
-    event.preventDefault();
-    if (ingredientListArea.value) {
-        var makeList = document.createElement("li");
-        var removeItem = document.getElementById(makeList.value);
-        document.getElementById("LI").remove(eleven)
 
-    }
-} */
+// Add Button Event Listeners
 
-// function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
-//     ingredientListArea.innerHTML = "";
-//     ingredientListArea.innerHTML = addIngredientList;
-//     console.log(addIngredientList);
-// };
-
-// if (localStorage.getItem(inputKey)) { // checks it here is items
-// clearAndAddIngredients();
-// }
-
-// Add Ingredient Button
-
-ingredientForm.addEventListener("submit", addIngredient);
-ingredientForm.addEventListener("submit", ingredientListAdd);
-resetButton.addEventListener("click", resetPage);
-
-/* resetButton.addEventListener("click", removeIngredients) */
+ingredientForm.addEventListener("submit", addIngredient); // Search For Cocktails
+ingredientForm.addEventListener("submit", ingredientListAdd); // Append Ingredients To Page
+resetButton.addEventListener("click", resetPage); // Reset Button
 
 
-
-
-
-
-
-// This gets recipes based on search results
+// This gets cocktails based on search results
 
 var executeSearch = function fetchFoundRecipe() {
 
@@ -162,7 +135,7 @@ var executeSearch = function fetchFoundRecipe() {
         return response.json();
     }).then (function (data) {
 
-        if (data.drinks[0]) { // Checks to see if there are drinks to display based on the search
+        if (data.drinks !== "None Found") { // Checks to see if there are drinks to display based on the search
 
             // Displays Cocktails
 
@@ -1228,11 +1201,11 @@ var executeSearch = function fetchFoundRecipe() {
                 }
             }
                 
-            };
+            }
             displayCocktails(data); // runs the display cocktails function
         } else {
             recipelist1.innerHTML = "No cocktails were found. Please modify your ingredients and try again."
-        };
+        }
     })
 };
 
