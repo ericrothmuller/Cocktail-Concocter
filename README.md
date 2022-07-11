@@ -2,7 +2,7 @@
 
 [Deployable Link: https://ericrothmuller.github.io/Cocktail-Concocter/](https://ericrothmuller.github.io/Cocktail-Concocter/)
 
-<img src="assets\Screenshot 2022-07-10 214008.png">
+<img src="assets\images\Screenshot 2022-07-10 214008.png">
 
 ## Description
 
@@ -30,7 +30,7 @@ On VS code and GitBash.
         <input class="awesomplete" list="mylist" id="addingredienttext"/>
             <datalist id="mylist">
 ``` 
-<img width="50%" src="assets\Screenshot 2022-07-10 215125.png">
+<img width="50%" src="assets\images\Screenshot 2022-07-10 215125.png">
 
 
 ### Here we have some JavaScript code that fetches the cocktail API appends the ingredients to the list
@@ -68,7 +68,7 @@ function ingredientListAdd(event) {
     }
 }
 ```
-<img width="50%" src="assets\ingredientslist.gif">
+<img width="50%" src="assets\images\ingredientslist.gif">
 
 
 ## Contact Infromation
