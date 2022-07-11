@@ -2,8 +2,7 @@
 
 [Deployable Link: https://ericrothmuller.github.io/Cocktail-Concocter/](https://ericrothmuller.github.io/Cocktail-Concocter/)
 
-<!-- image of site -->
-<img src="">
+<img src="assets\Screenshot 2022-07-10 214008.png">
 
 ## Description
 
