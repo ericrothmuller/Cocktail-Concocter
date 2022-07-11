@@ -1,10 +1,8 @@
-// TheCocktailDB API li
+// TheCocktailDB API
 
 // Universal Variables
 
 var searchButton = document.getElementById("searchbutton"); // Search Button ID
-
-var resetButton = document.getElementById("reset"); // Reset Button ID
 
 var ingredientForm = document.getElementById("addingredientform"); // Ingredient Form
 
@@ -87,42 +85,10 @@ function addIngredient(event) {
         ingredientLocalStorageArr.push(inputValue); // Adds ingredient to ingredientLocalStorageArr
         ingredientLocalStorageArr = removeDuplicate(ingredientLocalStorageArr); // removed duplicates from ingredientLocalStorageArr
 
+
     }
 
 }
-
-// Add Ingredient List
-
-function ingredientListAdd(event) {
-    event.preventDefault();
-    if (ingredientTextInput.value){
-        var inputKey = ingredientTextInput.value
-        var makeList = document.createElement("li");
-        var listIngredientn = document.createTextNode(inputKey);
-        makeList.setAttribute("id", "LI")
-        
-        makeList.appendChild(listIngredientn);
-        document.getElementById("ingredientlist").append(makeList);
-        ingredientTextInput.value = '';
-    }
-}
-
-/* function removeIngredients(event) {
-    event.preventDefault();
-    if (ingredientListArea.value) {
-        var makeList = document.createElement("li");
-        var removeItem = document.getElementById(makeList.value);
-
-        document.getElementById("LI").remove(eleven)
-
-    }
-} */
-
-ingredientForm.addEventListener("submit", addIngredient);
-ingredientForm.addEventListener("submit", ingredientListAdd);
-/* resetButton.addEventListener("click", removeIngredients) */
-
-
 
 // function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
 //     ingredientListArea.innerHTML = "";
@@ -133,6 +99,13 @@ ingredientForm.addEventListener("submit", ingredientListAdd);
 // if (localStorage.getItem(inputKey)) { // checks it here is items
 // clearAndAddIngredients();
 // }
+
+// Add Ingredient Button
+
+ingredientForm.addEventListener("submit", addIngredient);
+
+
+
 
 
 
@@ -162,7 +135,7 @@ var executeSearch = function fetchFoundRecipe() {
                 var cocktailImage1 = cocktail.drinks[0].strDrinkThumb; // grabs cocktail drink 1's image url
                 var cocktailId1 = cocktail.drinks[0].idDrink; // grabs cocktail drink 1's product ID
     
-                recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName1 + '</h2> <br /> <img src="' + cocktailImage1 + '" /> <br /> <button id="videos1Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe1buttonarea" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 1 in the recipe list area
+                recipeListArea1.innerHTML = '<hr />' + '<h2>' + cocktailName1 + '</h2> <br /> <img src="' + cocktailImage1 + '" /> <br /> <button id="videos1Button" class="button">View Videos</button> <br /> <button id="recipe1buttonarea" class="button">View Recipe</button>'; // displays recipe 1 in the recipe list area
     
                 var recipe1Button = document.getElementById("recipe1buttonarea"); // targets the recipe 1 button
                 recipe1Button.addEventListener("click", displayRecipe1); // event listener for the recipe 1 button
@@ -373,7 +346,7 @@ var executeSearch = function fetchFoundRecipe() {
                 var cocktailImage2 = cocktail.drinks[1].strDrinkThumb; // grabs cocktail drink 2's image url
                 var cocktailId2 = cocktail.drinks[1].idDrink; // grabs cocktail drink 2's product ID
     
-                recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button id="videos2Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe2buttonarea2" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 2 in the recipe list area
+                recipeListArea2.innerHTML = '<hr />' + '<h2>' + cocktailName2 + '</h2> <br /> <img src="' + cocktailImage2 + '" /> <br /> <button id="videos2Button" class="button">View Videos</button> <br /> <button id="recipe2buttonarea2" class="button">View Recipe</button>'; // displays recipe 2 in the recipe list area
     
                 var recipe2Button = document.getElementById("recipe2buttonarea2"); // targets the recipe 2 button
                 recipe2Button.addEventListener("click", displayRecipe2); // event listener for the recipe 2 button
@@ -585,7 +558,7 @@ var executeSearch = function fetchFoundRecipe() {
                 var cocktailImage3 = cocktail.drinks[2].strDrinkThumb; // grabs cocktail drink 3's image url
                 var cocktailId3 = cocktail.drinks[2].idDrink; // grabs cocktail drink 3's product ID
     
-                recipeListArea3.innerHTML = '<hr />' + '<h2>' + cocktailName3 + '</h2> <br /> <img src="' + cocktailImage3 + '" /> <br /> <button id="videos3Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe3buttonarea3" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 3 in the recipe list area
+                recipeListArea3.innerHTML = '<hr />' + '<h2>' + cocktailName3 + '</h2> <br /> <img src="' + cocktailImage3 + '" /> <br /> <button id="videos3Button" class="button">View Videos</button> <br /> <button id="recipe3buttonarea3" class="button">View Recipe</button>'; // displays recipe 3 in the recipe list area
     
                 var recipe3Button = document.getElementById("recipe3buttonarea3"); // targets the recipe 3 button
                 recipe3Button.addEventListener("click", displayRecipe3); // event listener for the recipe 3 button
@@ -798,7 +771,7 @@ var executeSearch = function fetchFoundRecipe() {
                 var cocktailImage4 = cocktail.drinks[3].strDrinkThumb; // grabs cocktail drink 4's image url
                 var cocktailId4 = cocktail.drinks[3].idDrink; // grabs cocktail drink 4's product ID
     
-                recipeListArea4.innerHTML = '<hr />' + '<h2>' + cocktailName4 + '</h2> <br /> <img src="' + cocktailImage4 + '" /> <br /> <button id="videos4Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe4buttonarea4" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 4 in the recipe list area
+                recipeListArea4.innerHTML = '<hr />' + '<h2>' + cocktailName4 + '</h2> <br /> <img src="' + cocktailImage4 + '" /> <br /> <button id="videos4Button" class="button">View Videos</button> <br /> <button id="recipe4buttonarea4" class="button">View Recipe</button>'; // displays recipe 4 in the recipe list area
     
                 var recipe4Button = document.getElementById("recipe4buttonarea4"); // targets the recipe 4 button
                 recipe4Button.addEventListener("click", displayRecipe4); // event listener for the recipe 4 button
@@ -1012,7 +985,7 @@ var executeSearch = function fetchFoundRecipe() {
                 var cocktailImage5 = cocktail.drinks[4].strDrinkThumb; // grabs cocktail drink 5's image url
                 var cocktailId5 = cocktail.drinks[4].idDrink; // grabs cocktail drink 5's product ID
     
-                recipeListArea5.innerHTML = '<hr />' + '<h2>' + cocktailName5 + '</h2> <br /> <img src="' + cocktailImage5 + '" /> <br /> <button id="videos5Button" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Videos</button> <br /> <button id="recipe5buttonarea5" class="bg-teal-100 hover:bg-emerald-800 w-full rounded">View Recipe</button>'; // displays recipe 5 in the recipe list area
+                recipeListArea5.innerHTML = '<hr />' + '<h2>' + cocktailName5 + '</h2> <br /> <img src="' + cocktailImage5 + '" /> <br /> <button id="videos5Button" class="button">View Videos</button> <br /> <button id="recipe5buttonarea5" class="button">View Recipe</button>'; // displays recipe 5 in the recipe list area
     
                 var recipe5Button = document.getElementById("recipe5buttonarea5"); // targets the recipe 5 button
                 recipe5Button.addEventListener("click", displayRecipe5); // event listener for the recipe 5 button
