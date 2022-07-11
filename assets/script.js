@@ -79,6 +79,7 @@ function removeDuplicate(arr){
 
 function addIngredient(event) {
     event.preventDefault();
+
     if (ingredientTextInput.value){ // Checks if there's something typed into the ingredient text field
         console.log(ingredientTextInput.value); // console.log's the input value
         var inputKey = ingredientTextInput.value; // Will be the localStorage Key
@@ -109,15 +110,14 @@ function ingredientListAdd(event) {
 }
 
 
-/*function removeIngredients(event) {
+function removeIngredients(event) {
     event.preventDefault();
     if (ingredientListArea.value) {
         var makeList = document.createElement("li");
         var removeItem = document.getElementById(makeList.value);
-        document.getElementById("LI").remove(eleven)
-
+        document.getElementById("LI").remove(eleven);
     }
-} */
+} 
 
 // function clearAndAddIngredients() { // clears the ingredient list and reprints it with a new one added.
 //     ingredientListArea.innerHTML = "";
@@ -133,7 +133,7 @@ function ingredientListAdd(event) {
 
 ingredientForm.addEventListener("submit", addIngredient);
 ingredientForm.addEventListener("submit", ingredientListAdd);
-/* resetButton.addEventListener("click", removeIngredients) */
+resetButton.addEventListener("click", removeIngredients); 
 
 
 
